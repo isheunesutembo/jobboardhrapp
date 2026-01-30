@@ -1,9 +1,8 @@
-
-import 'package:fpdart/fpdart.dart';
+import 'package:fpdart/fpdart.dart' hide Failure;
 import 'package:jobboardhrapp/core/error/failures.dart';
 
-abstract interface class UseCase<SuccessTypes,Params>{
-  Future<Either<ErrorMessage,SuccessTypes>>call(Params params);
+abstract interface class UseCase<SuccessTypes, Params> {
+  Future<Either<Failure, SuccessTypes>> call(Params params);
 }
 
-class NoParams{}
+class NoParams {}

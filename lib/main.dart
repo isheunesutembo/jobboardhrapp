@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jobboardhrapp/dependency_injection.dart';
+import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:jobboardhrapp/features/home/screens/home_screen.dart';
 import 'package:jobboardhrapp/util/color.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await initDependencies();
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create:(_)=>serviceLocator<AuthBloc>())
+  ],child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

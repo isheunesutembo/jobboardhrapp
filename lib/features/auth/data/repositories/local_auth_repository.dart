@@ -3,9 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalAuthRepository {
  late SharedPreferences _sharedPreferences;
-  Future<void>init()async{
-    _sharedPreferences=await SharedPreferences.getInstance();
-  }
+ LocalAuthRepository(this._sharedPreferences);
+  
   void setToken(String? token){
     if(token !=null){
       _sharedPreferences.setString("userToken", token);

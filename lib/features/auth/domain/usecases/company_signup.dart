@@ -1,30 +1,32 @@
-
-
-import 'package:fpdart/src/effect.dart';
+import 'package:fpdart/fpdart.dart' hide Failure;
 import 'package:jobboardhrapp/core/error/failures.dart';
 import 'package:jobboardhrapp/core/usecase/use_case.dart';
 import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
 import 'package:jobboardhrapp/features/auth/domain/auth_repository.dart';
 
-class CompanySignUpUsecase implements UseCase<CompanyModel,CompanySignUpParams>{
-
+class CompanySignUpUsecase
+    implements UseCase<CompanyModel, CompanySignUpParams> {
   final AuthRepository authRepository;
 
   CompanySignUpUsecase(this.authRepository);
 
   @override
-  Future<Either<ErrorMessage, CompanyModel>> call(params) async{
-    return await authRepository
-    .signUpWithEmailAndPassword(email: params.email, password: params.password, name: params.name, address: params.address, phoneNumber: params.phoneNumber);
-
+  Future<Either<Failure, CompanyModel>> call(params) async {
+    return await authRepository.signUpWithEmailAndPassword(
+      email: params.email,
+      password: params.password,
+      name: params.name,
+      address: params.address,
+      phoneNumber: params.phoneNumber,
+    );
   }
 }
 
-class CompanySignUpParams{
+class CompanySignUpParams {
   final String email;
   final String password;
   final String name;
-    final String address;
+  final String address;
   final String phoneNumber;
 
   CompanySignUpParams({
@@ -32,6 +34,6 @@ class CompanySignUpParams{
     required this.password,
     required this.name,
     required this.address,
-    required this.phoneNumber
+    required this.phoneNumber,
   });
 }
