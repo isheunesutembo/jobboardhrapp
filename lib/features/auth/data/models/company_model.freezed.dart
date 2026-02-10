@@ -180,7 +180,7 @@ class __$$CompanyModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable(explicitToJson: true, anyMap: true)
+@JsonSerializable()
 class _$CompanyModelImpl implements _CompanyModel {
   _$CompanyModelImpl({
     @JsonKey(name: "_id") this.id,

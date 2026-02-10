@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:jobboardhrapp/features/auth/presentation/screen/sign_up_screen.dart';
 import 'package:jobboardhrapp/features/home/screens/home_screen.dart';
 import 'package:jobboardhrapp/util/color.dart';
 import 'package:jobboardhrapp/util/custom_text_field.dart';
@@ -129,7 +130,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       const SizedBox(height: 15),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, '/registerscreen');
+                          Navigator.push(context,MaterialPageRoute(builder: (context)=>RegisterScreen()));
                         },
                         child: const Center(
                           child: Text(

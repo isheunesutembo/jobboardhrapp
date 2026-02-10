@@ -45,4 +45,9 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(Failure(e.toString()));
     }
   }
+
+  @override
+  Future<bool> isLoggedIn() async {
+    return await _authRemoteDataSource.isLoggedIn();
+  }
 }

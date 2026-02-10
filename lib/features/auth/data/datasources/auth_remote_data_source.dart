@@ -17,6 +17,8 @@ abstract class AuthRemoteDataSource {
     required String email,
     required String password,
   });
+
+  Future<bool> isLoggedIn();
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -79,5 +81,11 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     } catch (e) {
       throw Exception(e);
     }
+  }
+
+  @override
+  Future<bool> isLoggedIn() async {
+    final token = _localAuthRepository.getUserToken();
+    return token != null;
   }
 }

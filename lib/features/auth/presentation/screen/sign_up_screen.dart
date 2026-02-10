@@ -103,7 +103,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CustomTextField(
-                          controller: _nameController,
+                          controller: _phoneNumberController,
                           hintText: "Enter Phone Number:",
                         ),
                       ),
