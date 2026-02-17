@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobboardhrapp/dependency_injection.dart';
+import 'package:jobboardhrapp/features/application/presentation/bloc/application_bloc.dart';
 import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:jobboardhrapp/features/auth/presentation/screen/log_in_screen.dart';
 import 'package:jobboardhrapp/features/home/screens/home_screen.dart';
+import 'package:jobboardhrapp/features/vacancies/presentation/screen/bloc/vacancy_bloc.dart';
 import 'package:jobboardhrapp/util/color.dart';
 
 void main() async {
@@ -15,6 +17,8 @@ void main() async {
         BlocProvider(
           create: (_) => serviceLocator<AuthBloc>()..add(AuthUserLoggedIn()),
         ),
+        BlocProvider(create: (_) => serviceLocator<VacancyBloc>()),
+        BlocProvider(create: (_) => serviceLocator<ApplicationBloc>()),
       ],
       child: const MyApp(),
     ),

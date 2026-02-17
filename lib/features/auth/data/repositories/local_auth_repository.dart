@@ -17,7 +17,7 @@ class LocalAuthRepository {
   }
   void setUserId(String? userId){
     if(userId !=null){
-      _sharedPreferences.setString("userId", userId);
+      _sharedPreferences.setString("_id", userId);
     }
   }
   String? getUserToken(){
@@ -28,7 +28,7 @@ class LocalAuthRepository {
   }
 
  String? getUserId(){
-    return _sharedPreferences.getString("userId");
+    return _sharedPreferences.getString("_id");
   }
 
  
