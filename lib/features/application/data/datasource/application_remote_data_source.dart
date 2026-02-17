@@ -8,8 +8,6 @@ import 'package:jobboardhrapp/features/application/data/models/application_model
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
 
 abstract class ApplicationRemoteDataSource {
-
-
   Future<List<ApplicationModel>>getApplicationsByCompanyId();
 }
 
@@ -28,7 +26,7 @@ ApplicationRemoteDataSourceImpl(this._client,this._localAuthRepository);
       "Authorization":"Bearer ${_localAuthRepository.getUserToken()}"
     };
 
-    var url=Uri.http(AppConfig.baseUrl,"${AppConfig.applicationByCompanyUrl}/${_localAuthRepository.getUserId()}");
+    var url=Uri.http("${AppConfig.baseUrl}${AppConfig.applicationByCompanyUrl}/${_localAuthRepository.getUserId()}");
     var response=await _client.get(url,headers: requestHeaders);
     var data=jsonDecode(response.body);
 

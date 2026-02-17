@@ -103,12 +103,14 @@ class _SignInScreenState extends State<SignInScreen> {
                           height: 70,
                           child: ElevatedButton(
                             onPressed: () async {
-                              context.read<AuthBloc>().add(
-                                AuthLogin(
-                                  email: _emailController.text,
-                                  password: _passwordController.text,
-                                ),
-                              );
+                              if (validateAndSave()) {
+                                context.read<AuthBloc>().add(
+                                  AuthLogin(
+                                    email: _emailController.text.trim(),
+                                    password: _passwordController.text.trim(),
+                                  ),
+                                );
+                              }
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.black,
@@ -130,7 +132,12 @@ class _SignInScreenState extends State<SignInScreen> {
                       const SizedBox(height: 15),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(context,MaterialPageRoute(builder: (context)=>RegisterScreen()));
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RegisterScreen(),
+                            ),
+                          );
                         },
                         child: const Center(
                           child: Text(

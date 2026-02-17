@@ -30,9 +30,14 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String email,
     required String password,
   }) async {
+    Map<String, String> requestHeaders = {
+      "Accept": "application/json",
+      "Content-Type":"application/json"
+    };
     final response = await _client.post(
       Uri.parse(AppConfig.baseUrl + AppConfig.logInCompany),
       body: jsonEncode({"email": email, "password": password}),
+      headers: requestHeaders
     );
 
     try {
@@ -59,8 +64,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String address,
     required String phoneNumber,
   }) async {
+    Map<String, String> requestHeaders = {
+      "Accept": "application/json",
+      "Content-Type":"application/json"
+    };
     final response = await _client.post(
-      Uri.parse(AppConfig.baseUrl + AppConfig.registerCompany),
+      Uri.parse(AppConfig.baseUrl + AppConfig.registerCompany),headers: requestHeaders,
       body: jsonEncode({
         "email": email,
         "password": password,

@@ -11,6 +11,7 @@ abstract class CompanyModel with _$CompanyModel {
     String? name,
     String? address,
     String? phoneNumber,
+    String? logo
   }) = _CompanyModel;
   factory CompanyModel.fromJson(Map<String, dynamic> json) =>
       _$CompanyModelFromJson(json);

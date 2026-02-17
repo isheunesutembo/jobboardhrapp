@@ -15,7 +15,6 @@ final class AuthSignUp extends AuthEvent{
   AuthSignUp({
     required this.email,
     required this.password,
-    
     required  this.name,
     required this.address,
     required this.phoneNumber

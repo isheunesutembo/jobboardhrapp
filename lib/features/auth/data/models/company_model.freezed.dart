@@ -27,6 +27,7 @@ mixin _$CompanyModel {
   String? get name => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
+  String? get logo => throw _privateConstructorUsedError;
 
   /// Serializes this CompanyModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,6 +52,7 @@ abstract class $CompanyModelCopyWith<$Res> {
     String? name,
     String? address,
     String? phoneNumber,
+    String? logo,
   });
 }
 
@@ -74,6 +76,7 @@ class _$CompanyModelCopyWithImpl<$Res, $Val extends CompanyModel>
     Object? name = freezed,
     Object? address = freezed,
     Object? phoneNumber = freezed,
+    Object? logo = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -102,6 +105,11 @@ class _$CompanyModelCopyWithImpl<$Res, $Val extends CompanyModel>
                     ? _value.phoneNumber
                     : phoneNumber // ignore: cast_nullable_to_non_nullable
                         as String?,
+            logo:
+                freezed == logo
+                    ? _value.logo
+                    : logo // ignore: cast_nullable_to_non_nullable
+                        as String?,
           )
           as $Val,
     );
@@ -123,6 +131,7 @@ abstract class _$$CompanyModelImplCopyWith<$Res>
     String? name,
     String? address,
     String? phoneNumber,
+    String? logo,
   });
 }
 
@@ -145,6 +154,7 @@ class __$$CompanyModelImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? address = freezed,
     Object? phoneNumber = freezed,
+    Object? logo = freezed,
   }) {
     return _then(
       _$CompanyModelImpl(
@@ -173,6 +183,11 @@ class __$$CompanyModelImplCopyWithImpl<$Res>
                 ? _value.phoneNumber
                 : phoneNumber // ignore: cast_nullable_to_non_nullable
                     as String?,
+        logo:
+            freezed == logo
+                ? _value.logo
+                : logo // ignore: cast_nullable_to_non_nullable
+                    as String?,
       ),
     );
   }
@@ -188,6 +203,7 @@ class _$CompanyModelImpl implements _CompanyModel {
     this.name,
     this.address,
     this.phoneNumber,
+    this.logo,
   });
 
   factory _$CompanyModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -204,10 +220,12 @@ class _$CompanyModelImpl implements _CompanyModel {
   final String? address;
   @override
   final String? phoneNumber;
+  @override
+  final String? logo;
 
   @override
   String toString() {
-    return 'CompanyModel(id: $id, password: $password, name: $name, address: $address, phoneNumber: $phoneNumber)';
+    return 'CompanyModel(id: $id, password: $password, name: $name, address: $address, phoneNumber: $phoneNumber, logo: $logo)';
   }
 
   @override
@@ -221,13 +239,14 @@ class _$CompanyModelImpl implements _CompanyModel {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber));
+                other.phoneNumber == phoneNumber) &&
+            (identical(other.logo, logo) || other.logo == logo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, password, name, address, phoneNumber);
+      Object.hash(runtimeType, id, password, name, address, phoneNumber, logo);
 
   /// Create a copy of CompanyModel
   /// with the given fields replaced by the non-null parameter values.
@@ -250,6 +269,7 @@ abstract class _CompanyModel implements CompanyModel {
     final String? name,
     final String? address,
     final String? phoneNumber,
+    final String? logo,
   }) = _$CompanyModelImpl;
 
   factory _CompanyModel.fromJson(Map<String, dynamic> json) =
@@ -266,6 +286,8 @@ abstract class _CompanyModel implements CompanyModel {
   String? get address;
   @override
   String? get phoneNumber;
+  @override
+  String? get logo;
 
   /// Create a copy of CompanyModel
   /// with the given fields replaced by the non-null parameter values.
