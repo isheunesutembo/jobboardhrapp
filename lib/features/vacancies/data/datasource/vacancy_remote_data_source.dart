@@ -68,13 +68,18 @@ class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource{
       "Content-Type":"application/json",
       "Authorization":"Bearer ${_localAuthRepository.getUserToken()}"
     };
-    var url=Uri.http("${AppConfig.baseUrl}${AppConfig.vacanciesUrl}/company/${_localAuthRepository.getUserId()}");
+    var url=Uri.parse("${AppConfig.baseUrl}${AppConfig.vacanciesUrl}/company/${_localAuthRepository.getUserId()}");
     var response=await _client.get(url,headers: requestHeaders);
     var data=jsonDecode(response.body);
+  
+
 
     try{
+      
+     
       if(response.statusCode==200){
-        return vacancyFromJson(data);
+        
+        return vacancyFromJson(data["vacancies"]);
       }else{
         throw Exception(data['message'] ?? 'Getting vacancies failed');
       }

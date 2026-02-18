@@ -21,12 +21,12 @@ CompanyModel _$CompanyModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CompanyModel {
-  @JsonKey(name: "_id")
-  String? get id => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get address => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get companyId => throw _privateConstructorUsedError;
   String? get logo => throw _privateConstructorUsedError;
 
   /// Serializes this CompanyModel to a JSON map.
@@ -47,11 +47,12 @@ abstract class $CompanyModelCopyWith<$Res> {
   ) = _$CompanyModelCopyWithImpl<$Res, CompanyModel>;
   @useResult
   $Res call({
-    @JsonKey(name: "_id") String? id,
     String? password,
     String? name,
     String? address,
     String? phoneNumber,
+    String? email,
+    String? companyId,
     String? logo,
   });
 }
@@ -71,20 +72,16 @@ class _$CompanyModelCopyWithImpl<$Res, $Val extends CompanyModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? password = freezed,
     Object? name = freezed,
     Object? address = freezed,
     Object? phoneNumber = freezed,
+    Object? email = freezed,
+    Object? companyId = freezed,
     Object? logo = freezed,
   }) {
     return _then(
       _value.copyWith(
-            id:
-                freezed == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String?,
             password:
                 freezed == password
                     ? _value.password
@@ -104,6 +101,16 @@ class _$CompanyModelCopyWithImpl<$Res, $Val extends CompanyModel>
                 freezed == phoneNumber
                     ? _value.phoneNumber
                     : phoneNumber // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            email:
+                freezed == email
+                    ? _value.email
+                    : email // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            companyId:
+                freezed == companyId
+                    ? _value.companyId
+                    : companyId // ignore: cast_nullable_to_non_nullable
                         as String?,
             logo:
                 freezed == logo
@@ -126,11 +133,12 @@ abstract class _$$CompanyModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    @JsonKey(name: "_id") String? id,
     String? password,
     String? name,
     String? address,
     String? phoneNumber,
+    String? email,
+    String? companyId,
     String? logo,
   });
 }
@@ -149,20 +157,16 @@ class __$$CompanyModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
     Object? password = freezed,
     Object? name = freezed,
     Object? address = freezed,
     Object? phoneNumber = freezed,
+    Object? email = freezed,
+    Object? companyId = freezed,
     Object? logo = freezed,
   }) {
     return _then(
       _$CompanyModelImpl(
-        id:
-            freezed == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String?,
         password:
             freezed == password
                 ? _value.password
@@ -183,6 +187,16 @@ class __$$CompanyModelImplCopyWithImpl<$Res>
                 ? _value.phoneNumber
                 : phoneNumber // ignore: cast_nullable_to_non_nullable
                     as String?,
+        email:
+            freezed == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        companyId:
+            freezed == companyId
+                ? _value.companyId
+                : companyId // ignore: cast_nullable_to_non_nullable
+                    as String?,
         logo:
             freezed == logo
                 ? _value.logo
@@ -194,24 +208,21 @@ class __$$CompanyModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 @JsonSerializable()
 class _$CompanyModelImpl implements _CompanyModel {
   _$CompanyModelImpl({
-    @JsonKey(name: "_id") this.id,
     this.password,
     this.name,
     this.address,
     this.phoneNumber,
+    this.email,
+    this.companyId,
     this.logo,
   });
 
   factory _$CompanyModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CompanyModelImplFromJson(json);
 
-  @override
-  @JsonKey(name: "_id")
-  final String? id;
   @override
   final String? password;
   @override
@@ -221,11 +232,15 @@ class _$CompanyModelImpl implements _CompanyModel {
   @override
   final String? phoneNumber;
   @override
+  final String? email;
+  @override
+  final String? companyId;
+  @override
   final String? logo;
 
   @override
   String toString() {
-    return 'CompanyModel(id: $id, password: $password, name: $name, address: $address, phoneNumber: $phoneNumber, logo: $logo)';
+    return 'CompanyModel(password: $password, name: $name, address: $address, phoneNumber: $phoneNumber, email: $email, companyId: $companyId, logo: $logo)';
   }
 
   @override
@@ -233,20 +248,30 @@ class _$CompanyModelImpl implements _CompanyModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CompanyModelImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.companyId, companyId) ||
+                other.companyId == companyId) &&
             (identical(other.logo, logo) || other.logo == logo));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, password, name, address, phoneNumber, logo);
+  int get hashCode => Object.hash(
+    runtimeType,
+    password,
+    name,
+    address,
+    phoneNumber,
+    email,
+    companyId,
+    logo,
+  );
 
   /// Create a copy of CompanyModel
   /// with the given fields replaced by the non-null parameter values.
@@ -264,20 +289,18 @@ class _$CompanyModelImpl implements _CompanyModel {
 
 abstract class _CompanyModel implements CompanyModel {
   factory _CompanyModel({
-    @JsonKey(name: "_id") final String? id,
     final String? password,
     final String? name,
     final String? address,
     final String? phoneNumber,
+    final String? email,
+    final String? companyId,
     final String? logo,
   }) = _$CompanyModelImpl;
 
   factory _CompanyModel.fromJson(Map<String, dynamic> json) =
       _$CompanyModelImpl.fromJson;
 
-  @override
-  @JsonKey(name: "_id")
-  String? get id;
   @override
   String? get password;
   @override
@@ -286,6 +309,10 @@ abstract class _CompanyModel implements CompanyModel {
   String? get address;
   @override
   String? get phoneNumber;
+  @override
+  String? get email;
+  @override
+  String? get companyId;
   @override
   String? get logo;
 

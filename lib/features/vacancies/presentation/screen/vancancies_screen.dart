@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jobboardhrapp/features/vacancies/presentation/screen/bloc/vacancy_bloc.dart';
+import 'package:jobboardhrapp/features/vacancies/presentation/bloc/vacancy_bloc.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/widgets/empy_view.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/widgets/vacancies_list.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/widgets/vacancy_item_widget.dart';

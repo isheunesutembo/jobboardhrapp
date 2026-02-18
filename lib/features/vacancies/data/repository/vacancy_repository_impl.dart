@@ -1,7 +1,3 @@
-
-
-
-
 import 'package:fpdart/fpdart.dart' hide Failure;
 import 'package:jobboardhrapp/core/error/failures.dart';
 import 'package:jobboardhrapp/features/vacancies/data/datasource/vacancy_remote_data_source.dart';

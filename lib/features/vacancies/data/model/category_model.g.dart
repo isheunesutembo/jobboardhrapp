@@ -6,7 +6,7 @@ part of 'category_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CategoryModelImpl _$$CategoryModelImplFromJson(Map<String, dynamic> json) =>
+_$CategoryModelImpl _$$CategoryModelImplFromJson(Map json) =>
     _$CategoryModelImpl(
       title: json['title'] as String?,
       image: json['image'] as String?,

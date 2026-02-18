@@ -5,7 +5,7 @@ import 'package:jobboardhrapp/features/application/presentation/bloc/application
 import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:jobboardhrapp/features/auth/presentation/screen/log_in_screen.dart';
 import 'package:jobboardhrapp/features/home/screens/home_screen.dart';
-import 'package:jobboardhrapp/features/vacancies/presentation/screen/bloc/vacancy_bloc.dart';
+import 'package:jobboardhrapp/features/vacancies/presentation/bloc/vacancy_bloc.dart';
 import 'package:jobboardhrapp/util/color.dart';
 
 void main() async {
@@ -17,7 +17,7 @@ void main() async {
         BlocProvider(
           create: (_) => serviceLocator<AuthBloc>()..add(AuthUserLoggedIn()),
         ),
-        BlocProvider(create: (_) => serviceLocator<VacancyBloc>()),
+        BlocProvider(create: (_) => serviceLocator<VacancyBloc>()..add(GetVacancies())),
         BlocProvider(create: (_) => serviceLocator<ApplicationBloc>()),
       ],
       child: const MyApp(),

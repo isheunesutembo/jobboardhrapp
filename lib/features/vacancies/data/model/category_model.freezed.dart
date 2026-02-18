@@ -140,7 +140,8 @@ class __$$CategoryModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true, anyMap: true)
 class _$CategoryModelImpl implements _CategoryModel {
   _$CategoryModelImpl({this.title, this.image, this.categoryId});
 

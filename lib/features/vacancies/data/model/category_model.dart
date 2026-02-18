@@ -8,7 +8,9 @@ part 'category_model.g.dart';
 List<CategoryModel> categoryFromJson(dynamic str) =>
 List<CategoryModel>.from((str).map((e) => CategoryModel.fromJson(e)));
 @freezed
+
 abstract class CategoryModel with _$CategoryModel {
+  @JsonSerializable(explicitToJson:true ,anyMap: true)  
   
   factory CategoryModel({
     

@@ -26,7 +26,6 @@ mixin _$VacancyModel {
   String? get salary => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   CompanyModel? get company => throw _privateConstructorUsedError;
-  CategoryModel? get category => throw _privateConstructorUsedError;
   String? get requirements => throw _privateConstructorUsedError;
   List<String>? get skillTags => throw _privateConstructorUsedError;
 
@@ -53,13 +52,11 @@ abstract class $VacancyModelCopyWith<$Res> {
     String? salary,
     String? description,
     CompanyModel? company,
-    CategoryModel? category,
     String? requirements,
     List<String>? skillTags,
   });
 
   $CompanyModelCopyWith<$Res>? get company;
-  $CategoryModelCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -82,7 +79,6 @@ class _$VacancyModelCopyWithImpl<$Res, $Val extends VacancyModel>
     Object? salary = freezed,
     Object? description = freezed,
     Object? company = freezed,
-    Object? category = freezed,
     Object? requirements = freezed,
     Object? skillTags = freezed,
   }) {
@@ -113,11 +109,6 @@ class _$VacancyModelCopyWithImpl<$Res, $Val extends VacancyModel>
                     ? _value.company
                     : company // ignore: cast_nullable_to_non_nullable
                         as CompanyModel?,
-            category:
-                freezed == category
-                    ? _value.category
-                    : category // ignore: cast_nullable_to_non_nullable
-                        as CategoryModel?,
             requirements:
                 freezed == requirements
                     ? _value.requirements
@@ -146,20 +137,6 @@ class _$VacancyModelCopyWithImpl<$Res, $Val extends VacancyModel>
       return _then(_value.copyWith(company: value) as $Val);
     });
   }
-
-  /// Create a copy of VacancyModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $CategoryModelCopyWith<$Res>? get category {
-    if (_value.category == null) {
-      return null;
-    }
-
-    return $CategoryModelCopyWith<$Res>(_value.category!, (value) {
-      return _then(_value.copyWith(category: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -177,15 +154,12 @@ abstract class _$$VacancyModelImplCopyWith<$Res>
     String? salary,
     String? description,
     CompanyModel? company,
-    CategoryModel? category,
     String? requirements,
     List<String>? skillTags,
   });
 
   @override
   $CompanyModelCopyWith<$Res>? get company;
-  @override
-  $CategoryModelCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -207,7 +181,6 @@ class __$$VacancyModelImplCopyWithImpl<$Res>
     Object? salary = freezed,
     Object? description = freezed,
     Object? company = freezed,
-    Object? category = freezed,
     Object? requirements = freezed,
     Object? skillTags = freezed,
   }) {
@@ -238,11 +211,6 @@ class __$$VacancyModelImplCopyWithImpl<$Res>
                 ? _value.company
                 : company // ignore: cast_nullable_to_non_nullable
                     as CompanyModel?,
-        category:
-            freezed == category
-                ? _value.category
-                : category // ignore: cast_nullable_to_non_nullable
-                    as CategoryModel?,
         requirements:
             freezed == requirements
                 ? _value.requirements
@@ -259,7 +227,8 @@ class __$$VacancyModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true, anyMap: true)
 class _$VacancyModelImpl implements _VacancyModel {
   _$VacancyModelImpl({
     this.vacancyId,
@@ -267,7 +236,6 @@ class _$VacancyModelImpl implements _VacancyModel {
     this.salary,
     this.description,
     this.company,
-    this.category,
     this.requirements,
     final List<String>? skillTags,
   }) : _skillTags = skillTags;
@@ -286,8 +254,6 @@ class _$VacancyModelImpl implements _VacancyModel {
   @override
   final CompanyModel? company;
   @override
-  final CategoryModel? category;
-  @override
   final String? requirements;
   final List<String>? _skillTags;
   @override
@@ -301,7 +267,7 @@ class _$VacancyModelImpl implements _VacancyModel {
 
   @override
   String toString() {
-    return 'VacancyModel(vacancyId: $vacancyId, title: $title, salary: $salary, description: $description, company: $company, category: $category, requirements: $requirements, skillTags: $skillTags)';
+    return 'VacancyModel(vacancyId: $vacancyId, title: $title, salary: $salary, description: $description, company: $company, requirements: $requirements, skillTags: $skillTags)';
   }
 
   @override
@@ -316,8 +282,6 @@ class _$VacancyModelImpl implements _VacancyModel {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.company, company) || other.company == company) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
             (identical(other.requirements, requirements) ||
                 other.requirements == requirements) &&
             const DeepCollectionEquality().equals(
@@ -335,7 +299,6 @@ class _$VacancyModelImpl implements _VacancyModel {
     salary,
     description,
     company,
-    category,
     requirements,
     const DeepCollectionEquality().hash(_skillTags),
   );
@@ -361,7 +324,6 @@ abstract class _VacancyModel implements VacancyModel {
     final String? salary,
     final String? description,
     final CompanyModel? company,
-    final CategoryModel? category,
     final String? requirements,
     final List<String>? skillTags,
   }) = _$VacancyModelImpl;
@@ -379,8 +341,6 @@ abstract class _VacancyModel implements VacancyModel {
   String? get description;
   @override
   CompanyModel? get company;
-  @override
-  CategoryModel? get category;
   @override
   String? get requirements;
   @override

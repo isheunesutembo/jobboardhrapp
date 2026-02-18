@@ -9,15 +9,15 @@ part 'vacancy_model.g.dart';
 List<VacancyModel> vacancyFromJson(dynamic str) =>
 List<VacancyModel>.from((str).map((e) => VacancyModel.fromJson(e)));
 @freezed
+
 abstract class VacancyModel with _$VacancyModel {
-  
+    @JsonSerializable(explicitToJson: true,anyMap: true)
   factory VacancyModel({
     String? vacancyId,
     String? title,
     String? salary,
     String? description,
-    CompanyModel? company,
-    CategoryModel? category,
+   CompanyModel? company,
     String? requirements,
     List<String>? skillTags,
   }) = _VacancyModel;

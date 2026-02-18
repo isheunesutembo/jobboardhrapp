@@ -18,7 +18,7 @@ import 'package:jobboardhrapp/features/vacancies/data/repository/vacancy_reposit
 import 'package:jobboardhrapp/features/vacancies/domain/repository/vacancy_repository.dart';
 import 'package:jobboardhrapp/features/vacancies/domain/use_case/create_vacancy_usecase.dart';
 import 'package:jobboardhrapp/features/vacancies/domain/use_case/getting_vacancy_usecase.dart';
-import 'package:jobboardhrapp/features/vacancies/presentation/screen/bloc/vacancy_bloc.dart';
+import 'package:jobboardhrapp/features/vacancies/presentation/bloc/vacancy_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final serviceLocator = GetIt.instance;
