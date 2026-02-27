@@ -31,7 +31,7 @@ class VancanciesScreen extends StatelessWidget {
             if(state.vacancyModel.isEmpty){
               return const EmptyView();
             }
-            return VacanciesList(vacancies: state.vacancyModel);
+          //  return VacanciesList(vacancies: state.vacancyModel);
           }
 
           return const SizedBox.shrink();

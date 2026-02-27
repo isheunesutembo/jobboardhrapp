@@ -24,7 +24,7 @@ class VacancyRepositoryImpl implements VacancyRepository{
   try{
     final vacancy=await _vacancyRemoteDataSource.getVacanciesByCompanyId();
 
-    return Right(vacancyFromJson(vacancy));
+    return Right(vacanciesFromJson(vacancy));
   }catch(e){
     return Left(Failure(e.toString()));
   }

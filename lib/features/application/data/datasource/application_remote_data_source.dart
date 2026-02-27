@@ -26,7 +26,9 @@ ApplicationRemoteDataSourceImpl(this._client,this._localAuthRepository);
       "Authorization":"Bearer ${_localAuthRepository.getUserToken()}"
     };
 
-    var url=Uri.http("${AppConfig.baseUrl}${AppConfig.applicationByCompanyUrl}/${_localAuthRepository.getUserId()}");
+ var url = Uri.parse(
+      "${AppConfig.baseUrl}/${AppConfig.applicationByCompanyUrl}/${_localAuthRepository.getUserId()}",
+    );
     var response=await _client.get(url,headers: requestHeaders);
     var data=jsonDecode(response.body);
 

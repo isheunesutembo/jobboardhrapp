@@ -248,7 +248,7 @@ class __$$ApplicationModelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true, anyMap: true)
 class _$ApplicationModelImpl implements _ApplicationModel {
   _$ApplicationModelImpl({
     @JsonKey(name: "_id") this.id,

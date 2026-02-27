@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobboardhrapp/features/application/data/models/application_model.dart';
 
 
 void showSnackBar(BuildContext context, String text) {
@@ -10,4 +11,8 @@ void showSnackBar(BuildContext context, String text) {
         content: Text(text),
       ),
     );
+}
+
+List<ApplicationModel>filterApplications(List<ApplicationModel>applications,String status){
+  return applications.where((element) => element.status == status).toList();
 }

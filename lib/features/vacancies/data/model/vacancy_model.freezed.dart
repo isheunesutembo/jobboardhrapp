@@ -21,13 +21,15 @@ VacancyModel _$VacancyModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$VacancyModel {
-  String? get vacancyId => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  String? get salary => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  CompanyModel? get company => throw _privateConstructorUsedError;
   String? get requirements => throw _privateConstructorUsedError;
   List<String>? get skillTags => throw _privateConstructorUsedError;
+  String? get experience => throw _privateConstructorUsedError;
+  String? get salary => throw _privateConstructorUsedError;
+  String? get benefits => throw _privateConstructorUsedError;
+  CompanyModel? get company => throw _privateConstructorUsedError;
+  String? get vacancyId => throw _privateConstructorUsedError;
 
   /// Serializes this VacancyModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,13 +49,15 @@ abstract class $VacancyModelCopyWith<$Res> {
   ) = _$VacancyModelCopyWithImpl<$Res, VacancyModel>;
   @useResult
   $Res call({
-    String? vacancyId,
     String? title,
-    String? salary,
     String? description,
-    CompanyModel? company,
     String? requirements,
     List<String>? skillTags,
+    String? experience,
+    String? salary,
+    String? benefits,
+    CompanyModel? company,
+    String? vacancyId,
   });
 
   $CompanyModelCopyWith<$Res>? get company;
@@ -74,41 +78,28 @@ class _$VacancyModelCopyWithImpl<$Res, $Val extends VacancyModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? vacancyId = freezed,
     Object? title = freezed,
-    Object? salary = freezed,
     Object? description = freezed,
-    Object? company = freezed,
     Object? requirements = freezed,
     Object? skillTags = freezed,
+    Object? experience = freezed,
+    Object? salary = freezed,
+    Object? benefits = freezed,
+    Object? company = freezed,
+    Object? vacancyId = freezed,
   }) {
     return _then(
       _value.copyWith(
-            vacancyId:
-                freezed == vacancyId
-                    ? _value.vacancyId
-                    : vacancyId // ignore: cast_nullable_to_non_nullable
-                        as String?,
             title:
                 freezed == title
                     ? _value.title
                     : title // ignore: cast_nullable_to_non_nullable
-                        as String?,
-            salary:
-                freezed == salary
-                    ? _value.salary
-                    : salary // ignore: cast_nullable_to_non_nullable
                         as String?,
             description:
                 freezed == description
                     ? _value.description
                     : description // ignore: cast_nullable_to_non_nullable
                         as String?,
-            company:
-                freezed == company
-                    ? _value.company
-                    : company // ignore: cast_nullable_to_non_nullable
-                        as CompanyModel?,
             requirements:
                 freezed == requirements
                     ? _value.requirements
@@ -119,6 +110,31 @@ class _$VacancyModelCopyWithImpl<$Res, $Val extends VacancyModel>
                     ? _value.skillTags
                     : skillTags // ignore: cast_nullable_to_non_nullable
                         as List<String>?,
+            experience:
+                freezed == experience
+                    ? _value.experience
+                    : experience // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            salary:
+                freezed == salary
+                    ? _value.salary
+                    : salary // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            benefits:
+                freezed == benefits
+                    ? _value.benefits
+                    : benefits // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            company:
+                freezed == company
+                    ? _value.company
+                    : company // ignore: cast_nullable_to_non_nullable
+                        as CompanyModel?,
+            vacancyId:
+                freezed == vacancyId
+                    ? _value.vacancyId
+                    : vacancyId // ignore: cast_nullable_to_non_nullable
+                        as String?,
           )
           as $Val,
     );
@@ -149,13 +165,15 @@ abstract class _$$VacancyModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call({
-    String? vacancyId,
     String? title,
-    String? salary,
     String? description,
-    CompanyModel? company,
     String? requirements,
     List<String>? skillTags,
+    String? experience,
+    String? salary,
+    String? benefits,
+    CompanyModel? company,
+    String? vacancyId,
   });
 
   @override
@@ -176,41 +194,28 @@ class __$$VacancyModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? vacancyId = freezed,
     Object? title = freezed,
-    Object? salary = freezed,
     Object? description = freezed,
-    Object? company = freezed,
     Object? requirements = freezed,
     Object? skillTags = freezed,
+    Object? experience = freezed,
+    Object? salary = freezed,
+    Object? benefits = freezed,
+    Object? company = freezed,
+    Object? vacancyId = freezed,
   }) {
     return _then(
       _$VacancyModelImpl(
-        vacancyId:
-            freezed == vacancyId
-                ? _value.vacancyId
-                : vacancyId // ignore: cast_nullable_to_non_nullable
-                    as String?,
         title:
             freezed == title
                 ? _value.title
                 : title // ignore: cast_nullable_to_non_nullable
-                    as String?,
-        salary:
-            freezed == salary
-                ? _value.salary
-                : salary // ignore: cast_nullable_to_non_nullable
                     as String?,
         description:
             freezed == description
                 ? _value.description
                 : description // ignore: cast_nullable_to_non_nullable
                     as String?,
-        company:
-            freezed == company
-                ? _value.company
-                : company // ignore: cast_nullable_to_non_nullable
-                    as CompanyModel?,
         requirements:
             freezed == requirements
                 ? _value.requirements
@@ -221,6 +226,31 @@ class __$$VacancyModelImplCopyWithImpl<$Res>
                 ? _value._skillTags
                 : skillTags // ignore: cast_nullable_to_non_nullable
                     as List<String>?,
+        experience:
+            freezed == experience
+                ? _value.experience
+                : experience // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        salary:
+            freezed == salary
+                ? _value.salary
+                : salary // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        benefits:
+            freezed == benefits
+                ? _value.benefits
+                : benefits // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        company:
+            freezed == company
+                ? _value.company
+                : company // ignore: cast_nullable_to_non_nullable
+                    as CompanyModel?,
+        vacancyId:
+            freezed == vacancyId
+                ? _value.vacancyId
+                : vacancyId // ignore: cast_nullable_to_non_nullable
+                    as String?,
       ),
     );
   }
@@ -231,28 +261,24 @@ class __$$VacancyModelImplCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true, anyMap: true)
 class _$VacancyModelImpl implements _VacancyModel {
   _$VacancyModelImpl({
-    this.vacancyId,
     this.title,
-    this.salary,
     this.description,
-    this.company,
     this.requirements,
     final List<String>? skillTags,
+    this.experience,
+    this.salary,
+    this.benefits,
+    this.company,
+    this.vacancyId,
   }) : _skillTags = skillTags;
 
   factory _$VacancyModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$VacancyModelImplFromJson(json);
 
   @override
-  final String? vacancyId;
-  @override
   final String? title;
   @override
-  final String? salary;
-  @override
   final String? description;
-  @override
-  final CompanyModel? company;
   @override
   final String? requirements;
   final List<String>? _skillTags;
@@ -266,8 +292,19 @@ class _$VacancyModelImpl implements _VacancyModel {
   }
 
   @override
+  final String? experience;
+  @override
+  final String? salary;
+  @override
+  final String? benefits;
+  @override
+  final CompanyModel? company;
+  @override
+  final String? vacancyId;
+
+  @override
   String toString() {
-    return 'VacancyModel(vacancyId: $vacancyId, title: $title, salary: $salary, description: $description, company: $company, requirements: $requirements, skillTags: $skillTags)';
+    return 'VacancyModel(title: $title, description: $description, requirements: $requirements, skillTags: $skillTags, experience: $experience, salary: $salary, benefits: $benefits, company: $company, vacancyId: $vacancyId)';
   }
 
   @override
@@ -275,32 +312,38 @@ class _$VacancyModelImpl implements _VacancyModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VacancyModelImpl &&
-            (identical(other.vacancyId, vacancyId) ||
-                other.vacancyId == vacancyId) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.salary, salary) || other.salary == salary) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.company, company) || other.company == company) &&
             (identical(other.requirements, requirements) ||
                 other.requirements == requirements) &&
             const DeepCollectionEquality().equals(
               other._skillTags,
               _skillTags,
-            ));
+            ) &&
+            (identical(other.experience, experience) ||
+                other.experience == experience) &&
+            (identical(other.salary, salary) || other.salary == salary) &&
+            (identical(other.benefits, benefits) ||
+                other.benefits == benefits) &&
+            (identical(other.company, company) || other.company == company) &&
+            (identical(other.vacancyId, vacancyId) ||
+                other.vacancyId == vacancyId));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
     runtimeType,
-    vacancyId,
     title,
-    salary,
     description,
-    company,
     requirements,
     const DeepCollectionEquality().hash(_skillTags),
+    experience,
+    salary,
+    benefits,
+    company,
+    vacancyId,
   );
 
   /// Create a copy of VacancyModel
@@ -319,32 +362,38 @@ class _$VacancyModelImpl implements _VacancyModel {
 
 abstract class _VacancyModel implements VacancyModel {
   factory _VacancyModel({
-    final String? vacancyId,
     final String? title,
-    final String? salary,
     final String? description,
-    final CompanyModel? company,
     final String? requirements,
     final List<String>? skillTags,
+    final String? experience,
+    final String? salary,
+    final String? benefits,
+    final CompanyModel? company,
+    final String? vacancyId,
   }) = _$VacancyModelImpl;
 
   factory _VacancyModel.fromJson(Map<String, dynamic> json) =
       _$VacancyModelImpl.fromJson;
 
   @override
-  String? get vacancyId;
-  @override
   String? get title;
   @override
-  String? get salary;
-  @override
   String? get description;
-  @override
-  CompanyModel? get company;
   @override
   String? get requirements;
   @override
   List<String>? get skillTags;
+  @override
+  String? get experience;
+  @override
+  String? get salary;
+  @override
+  String? get benefits;
+  @override
+  CompanyModel? get company;
+  @override
+  String? get vacancyId;
 
   /// Create a copy of VacancyModel
   /// with the given fields replaced by the non-null parameter values.

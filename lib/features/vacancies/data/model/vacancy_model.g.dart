@@ -7,28 +7,32 @@ part of 'vacancy_model.dart';
 // **************************************************************************
 
 _$VacancyModelImpl _$$VacancyModelImplFromJson(Map json) => _$VacancyModelImpl(
-  vacancyId: json['vacancyId'] as String?,
   title: json['title'] as String?,
-  salary: json['salary'] as String?,
   description: json['description'] as String?,
+  requirements: json['requirements'] as String?,
+  skillTags:
+      (json['skillTags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+  experience: json['experience'] as String?,
+  salary: json['salary'] as String?,
+  benefits: json['benefits'] as String?,
   company:
       json['company'] == null
           ? null
           : CompanyModel.fromJson(
             Map<String, dynamic>.from(json['company'] as Map),
           ),
-  requirements: json['requirements'] as String?,
-  skillTags:
-      (json['skillTags'] as List<dynamic>?)?.map((e) => e as String).toList(),
+  vacancyId: json['vacancyId'] as String?,
 );
 
 Map<String, dynamic> _$$VacancyModelImplToJson(_$VacancyModelImpl instance) =>
     <String, dynamic>{
-      'vacancyId': instance.vacancyId,
       'title': instance.title,
-      'salary': instance.salary,
       'description': instance.description,
-      'company': instance.company?.toJson(),
       'requirements': instance.requirements,
       'skillTags': instance.skillTags,
+      'experience': instance.experience,
+      'salary': instance.salary,
+      'benefits': instance.benefits,
+      'company': instance.company?.toJson(),
+      'vacancyId': instance.vacancyId,
     };

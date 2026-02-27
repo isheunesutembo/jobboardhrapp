@@ -10,9 +10,9 @@ final class ApplicationInitial extends ApplicationState{}
 
 final class ApplicationLoading extends ApplicationState{}
 
-final class ApplicationSuccess extends ApplicationState{
+final class GetApplicationSuccess extends ApplicationState{
   final List<ApplicationModel> applicationModel;
-  ApplicationSuccess(this.applicationModel);
+  GetApplicationSuccess(this.applicationModel);
 }
 
 final class ApplicationFailure extends ApplicationState{

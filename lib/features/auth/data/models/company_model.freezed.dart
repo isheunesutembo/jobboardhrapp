@@ -208,7 +208,8 @@ class __$$CompanyModelImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(explicitToJson: true, anyMap: true)
 class _$CompanyModelImpl implements _CompanyModel {
   _$CompanyModelImpl({
     this.password,

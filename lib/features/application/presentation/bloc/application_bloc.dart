@@ -28,7 +28,7 @@ class ApplicationBloc extends Bloc<ApplicationEvent,ApplicationState>{
       case Left(value:final failure):
       emit(ApplicationFailure(failure.message));
       case Right(value:final success):
-      emit(ApplicationSuccess(success));
+      emit(GetApplicationSuccess(success));
     }
   }
 }
