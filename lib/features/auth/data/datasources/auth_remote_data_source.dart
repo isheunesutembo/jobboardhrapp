@@ -45,7 +45,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       if (response.statusCode == 200 || response.statusCode == 201) {
         _localAuthRepository.setUserId(data['_id']);
-        _localAuthRepository.setToken(data['accesstoken']);
+        _localAuthRepository.setToken(data['accessToken']);
 
         return CompanyModel.fromJson(data);
       } else {

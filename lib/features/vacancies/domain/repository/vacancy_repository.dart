@@ -14,7 +14,7 @@ abstract interface class VacancyRepository {
    required List<String>skillTags,
    required String salary,
    required String category,
-   required String company
+   
   });
 
   Future<Either<Failure,List<VacancyModel>>>getVacanciesByCompanyId();

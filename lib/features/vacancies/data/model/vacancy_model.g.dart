@@ -15,12 +15,6 @@ _$VacancyModelImpl _$$VacancyModelImplFromJson(Map json) => _$VacancyModelImpl(
   experience: json['experience'] as String?,
   salary: json['salary'] as String?,
   benefits: json['benefits'] as String?,
-  company:
-      json['company'] == null
-          ? null
-          : CompanyModel.fromJson(
-            Map<String, dynamic>.from(json['company'] as Map),
-          ),
   vacancyId: json['vacancyId'] as String?,
 );
 
@@ -33,6 +27,5 @@ Map<String, dynamic> _$$VacancyModelImplToJson(_$VacancyModelImpl instance) =>
       'experience': instance.experience,
       'salary': instance.salary,
       'benefits': instance.benefits,
-      'company': instance.company?.toJson(),
       'vacancyId': instance.vacancyId,
     };

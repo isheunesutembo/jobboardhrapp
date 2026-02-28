@@ -17,7 +17,7 @@ class CreateVacancyUseCase
       skillTags: params.skillTags,
       salary: params.salary,
       category: params.category,
-      company: params.company,
+     
     );
   }
 }
@@ -29,7 +29,7 @@ class CreateVacancyParams {
   final List<String> skillTags;
   final String salary;
   final String category;
-  final String company;
+
 
   CreateVacancyParams({
     required this.title,
@@ -38,6 +38,6 @@ class CreateVacancyParams {
     required this.skillTags,
     required this.salary,
     required this.category,
-    required this.company,
+    
   });
 }

@@ -11,7 +11,7 @@ final String requirements;
  final List<String> skillTags; 
  final String salary; 
  final String category; 
- final String company;
+
 
  CreateVacancy({
   required this.title,
@@ -20,7 +20,7 @@ final String requirements;
   required this.skillTags,
   required this.salary,
   required this.category,
-  required this.company
+  
  });
 }
 

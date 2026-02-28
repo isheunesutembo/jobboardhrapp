@@ -17,7 +17,7 @@ void main() async {
         BlocProvider(
           create: (_) => serviceLocator<AuthBloc>()..add(AuthUserLoggedIn()),
         ),
-        BlocProvider(create: (_) => serviceLocator<VacancyBloc>()),
+        BlocProvider(create: (_) => serviceLocator<VacancyBloc>()..add(GetVacancies())),
         BlocProvider(create: (_) => serviceLocator<ApplicationBloc>()..add(GetApplications())),
       ],
       child: const MyApp(),

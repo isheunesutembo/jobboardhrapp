@@ -12,7 +12,7 @@ class VacanciesList extends StatelessWidget {
    
           return ListView.builder(
               scrollDirection: Axis.vertical,
-              physics:const NeverScrollableScrollPhysics(),
+              physics:const BouncingScrollPhysics(),
               itemCount: vacancies.length,
               shrinkWrap: true,
               itemBuilder: (context, index) {

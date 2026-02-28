@@ -18,7 +18,7 @@ factory VacancyModel
   String? experience,
   String? salary,
   String? benefits,
-  CompanyModel? company,
+  //CompanyModel? company,
   String? vacancyId
   })=_VacancyModel;
     factory VacancyModel.fromJson(Map<String,dynamic>json)=> _$VacancyModelFromJson(json);

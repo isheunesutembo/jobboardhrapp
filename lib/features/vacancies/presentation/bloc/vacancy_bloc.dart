@@ -24,7 +24,7 @@ class VacancyBloc extends Bloc<VacancyEvent,VacancyState>{
    void _onCreatingVacancy(CreateVacancy event ,Emitter<VacancyState>emit)async{
     emit(VacancyLoading());
     final Either<Failure,VacancyModel>res=await _createVacancyUseCase(
-      CreateVacancyParams(title: event.title, description: event.description, requirements: event.requirements, skillTags: event.skillTags, salary: event.salary, category: event.category, company: event.company)
+      CreateVacancyParams(title: event.title, description: event.description, requirements: event.requirements, skillTags: event.skillTags, salary: event.salary, category: event.category,)
     );
 
     switch(res){

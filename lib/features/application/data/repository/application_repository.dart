@@ -5,21 +5,21 @@ import 'package:jobboardhrapp/features/application/domain/repository/application
 
 import '../../../../core/error/failures.dart';
 
-class ApplicationRepositoryImpl implements ApplicationRepository{
-
+class ApplicationRepositoryImpl implements ApplicationRepository {
   final ApplicationRemoteDataSource _applicationRemoteDataSource;
 
   ApplicationRepositoryImpl(this._applicationRemoteDataSource);
 
   @override
-  Future<Either<Failure, List<ApplicationModel>>> getApplicationsByCompanyId() async{
-   try{
-     final application=await _applicationRemoteDataSource.getApplicationsByCompanyId();
+  Future<Either<Failure, List<ApplicationModel>>>
+  getApplicationsByCompanyId() async {
+    try {
+      final application =
+          await _applicationRemoteDataSource.getApplicationsByCompanyId();
 
-     return Right(applicationFromJson(application));
-   }catch(e){
-     return Left(Failure(e.toString()));
-   }
+      return Right(application);
+    } catch (e) {
+      return Left(Failure(e.toString()));
+    }
   }
-
 }

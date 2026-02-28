@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobboardhrapp/features/application/presentation/screen/application_screen.dart';
 import 'package:jobboardhrapp/features/auth/presentation/screen/company_profile_screen.dart';
+import 'package:jobboardhrapp/features/vacancies/presentation/screen/add_vacancy_screen.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/screen/vancancies_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -29,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(backgroundColor: Colors.black,onPressed: (){
-
+     Navigator.push(context, MaterialPageRoute(builder: (context)=>AddVacancyScreen()));
       },child: Icon(Icons.edit,color: Colors.white,),),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
@@ -38,8 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
         onTap: _onItemTap,
         unselectedItemColor: Colors.black,items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
-           BottomNavigationBarItem(icon: Icon(Icons.email),label: "Applications"),
-             BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile"),
+          BottomNavigationBarItem(icon: Icon(Icons.email),label: "Applications"),
+          BottomNavigationBarItem(icon: Icon(Icons.person),label: "Profile"),
 
         ]),
         body: pages[selectedIndex],

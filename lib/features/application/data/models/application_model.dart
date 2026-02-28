@@ -3,6 +3,7 @@ import 'package:jobboardhrapp/config/app_config.dart';
 import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
 import 'package:jobboardhrapp/features/resume/data/model/resume_model.dart';
 import 'package:jobboardhrapp/features/user/data/model/user_model.dart';
+import 'package:jobboardhrapp/features/vacancies/data/model/vacancy_model.dart';
 part 'application_model.freezed.dart';
 part 'application_model.g.dart';
 List<ApplicationModel> applicationFromJson(dynamic str) =>
@@ -18,7 +19,7 @@ abstract class ApplicationModel with _$ApplicationModel {
     CompanyModel? company,
     ResumeModel? resume,
     UserModel? userId,
-    String? vacancyId
+    VacancyModel? vacancyId
    
   }) = _ApplicationModel;
   factory ApplicationModel.fromJson(Map<String, dynamic> json) =>

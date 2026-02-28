@@ -12,7 +12,7 @@ abstract class VacancyRemoteDataSource {
     required List<String> skillTags,
     required String salary,
     required String category,
-    required String company,
+ 
   });
 
   Future<List<VacancyModel>> getVacanciesByCompanyId();
@@ -31,7 +31,7 @@ class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource {
     required List<String> skillTags,
     required String salary,
     required String category,
-    required String company,
+   
   }) async {
     Map<String, String> requestHeaders = {
       "Accept": "application/json",
@@ -47,7 +47,7 @@ class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource {
         "skillTags": skillTags,
         "salary": salary,
         "category": category,
-        "company": company,
+        "company": "${_localAuthRepository.getUserId()}",
       }),
       headers: requestHeaders,
     );

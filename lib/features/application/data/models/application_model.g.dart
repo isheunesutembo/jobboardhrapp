@@ -28,7 +28,12 @@ _$ApplicationModelImpl _$$ApplicationModelImplFromJson(Map json) =>
               : UserModel.fromJson(
                 Map<String, dynamic>.from(json['userId'] as Map),
               ),
-      vacancyId: json['vacancyId'] as String?,
+      vacancyId:
+          json['vacancyId'] == null
+              ? null
+              : VacancyModel.fromJson(
+                Map<String, dynamic>.from(json['vacancyId'] as Map),
+              ),
     );
 
 Map<String, dynamic> _$$ApplicationModelImplToJson(
@@ -39,5 +44,5 @@ Map<String, dynamic> _$$ApplicationModelImplToJson(
   'company': instance.company?.toJson(),
   'resume': instance.resume?.toJson(),
   'userId': instance.userId?.toJson(),
-  'vacancyId': instance.vacancyId,
+  'vacancyId': instance.vacancyId?.toJson(),
 };

@@ -27,7 +27,7 @@ mixin _$ApplicationModel {
   CompanyModel? get company => throw _privateConstructorUsedError;
   ResumeModel? get resume => throw _privateConstructorUsedError;
   UserModel? get userId => throw _privateConstructorUsedError;
-  String? get vacancyId => throw _privateConstructorUsedError;
+  VacancyModel? get vacancyId => throw _privateConstructorUsedError;
 
   /// Serializes this ApplicationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,12 +52,13 @@ abstract class $ApplicationModelCopyWith<$Res> {
     CompanyModel? company,
     ResumeModel? resume,
     UserModel? userId,
-    String? vacancyId,
+    VacancyModel? vacancyId,
   });
 
   $CompanyModelCopyWith<$Res>? get company;
   $ResumeModelCopyWith<$Res>? get resume;
   $UserModelCopyWith<$Res>? get userId;
+  $VacancyModelCopyWith<$Res>? get vacancyId;
 }
 
 /// @nodoc
@@ -113,7 +114,7 @@ class _$ApplicationModelCopyWithImpl<$Res, $Val extends ApplicationModel>
                 freezed == vacancyId
                     ? _value.vacancyId
                     : vacancyId // ignore: cast_nullable_to_non_nullable
-                        as String?,
+                        as VacancyModel?,
           )
           as $Val,
     );
@@ -160,6 +161,20 @@ class _$ApplicationModelCopyWithImpl<$Res, $Val extends ApplicationModel>
       return _then(_value.copyWith(userId: value) as $Val);
     });
   }
+
+  /// Create a copy of ApplicationModel
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VacancyModelCopyWith<$Res>? get vacancyId {
+    if (_value.vacancyId == null) {
+      return null;
+    }
+
+    return $VacancyModelCopyWith<$Res>(_value.vacancyId!, (value) {
+      return _then(_value.copyWith(vacancyId: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -177,7 +192,7 @@ abstract class _$$ApplicationModelImplCopyWith<$Res>
     CompanyModel? company,
     ResumeModel? resume,
     UserModel? userId,
-    String? vacancyId,
+    VacancyModel? vacancyId,
   });
 
   @override
@@ -186,6 +201,8 @@ abstract class _$$ApplicationModelImplCopyWith<$Res>
   $ResumeModelCopyWith<$Res>? get resume;
   @override
   $UserModelCopyWith<$Res>? get userId;
+  @override
+  $VacancyModelCopyWith<$Res>? get vacancyId;
 }
 
 /// @nodoc
@@ -240,7 +257,7 @@ class __$$ApplicationModelImplCopyWithImpl<$Res>
             freezed == vacancyId
                 ? _value.vacancyId
                 : vacancyId // ignore: cast_nullable_to_non_nullable
-                    as String?,
+                    as VacancyModel?,
       ),
     );
   }
@@ -274,7 +291,7 @@ class _$ApplicationModelImpl implements _ApplicationModel {
   @override
   final UserModel? userId;
   @override
-  final String? vacancyId;
+  final VacancyModel? vacancyId;
 
   @override
   String toString() {
@@ -324,7 +341,7 @@ abstract class _ApplicationModel implements ApplicationModel {
     final CompanyModel? company,
     final ResumeModel? resume,
     final UserModel? userId,
-    final String? vacancyId,
+    final VacancyModel? vacancyId,
   }) = _$ApplicationModelImpl;
 
   factory _ApplicationModel.fromJson(Map<String, dynamic> json) =
@@ -342,7 +359,7 @@ abstract class _ApplicationModel implements ApplicationModel {
   @override
   UserModel? get userId;
   @override
-  String? get vacancyId;
+  VacancyModel? get vacancyId;
 
   /// Create a copy of ApplicationModel
   /// with the given fields replaced by the non-null parameter values.
