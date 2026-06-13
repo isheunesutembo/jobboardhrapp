@@ -17,3 +17,7 @@ abstract class UserModel with _$UserModel {
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);
 }
+
+extension UserExt on UserModel{
+  String get fullProfileImagePath=>AppConfig.fullImageUrl+profileImage.toString();
+}

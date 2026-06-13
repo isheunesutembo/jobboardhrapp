@@ -16,6 +16,7 @@ class _ResumeWidgetState extends State<ResumeWidget> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
+        elevation: 1,
         color: Colors.white,
         child: SizedBox(
           height: 113,

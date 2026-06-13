@@ -9,6 +9,7 @@ final String title;
 final String description; 
 final String requirements;
  final List<String> skillTags; 
+ final String experience;
  final String salary; 
  final String category; 
 
@@ -18,6 +19,7 @@ final String requirements;
   required this.description,
   required this.requirements,
   required this.skillTags,
+  required this.experience,
   required this.salary,
   required this.category,
   
@@ -25,5 +27,5 @@ final String requirements;
 }
 
 final class GetVacancies extends VacancyEvent{
-
+    
 }

@@ -22,4 +22,15 @@ class ApplicationRepositoryImpl implements ApplicationRepository {
       return Left(Failure(e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, String>> updateApplicationStatus(String applicationId, String status) async{
+    try{
+      final application =await _applicationRemoteDataSource.updateApplicationStatus(applicationId, status);
+
+      return Right(application);
+    }catch(e){
+      return Left(Failure(e.toString()));
+    }
+  }
 }

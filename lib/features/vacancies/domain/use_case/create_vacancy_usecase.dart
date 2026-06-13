@@ -15,6 +15,7 @@ class CreateVacancyUseCase
       description: params.description,
       requirements: params.requirements,
       skillTags: params.skillTags,
+      experience: params.experience,
       salary: params.salary,
       category: params.category,
      
@@ -27,6 +28,7 @@ class CreateVacancyParams {
   final String description;
   final String requirements;
   final List<String> skillTags;
+  final String experience;
   final String salary;
   final String category;
 
@@ -36,6 +38,7 @@ class CreateVacancyParams {
     required this.description,
     required this.requirements,
     required this.skillTags,
+    required this.experience,
     required this.salary,
     required this.category,
     

@@ -13,7 +13,9 @@ class ApplicationListScreen extends StatelessWidget {
               itemCount:applications.length,
               itemBuilder: (context, index) {
                 
-                return  ApplicationItemWidget(applicationModel: applications[index]);
+                return  GestureDetector(onTap: (){
+                  
+                },child: ApplicationItemWidget(applicationModel: applications[index]));
               });
   }
 }

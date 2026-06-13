@@ -13,11 +13,11 @@ class AppConfig {
 
   static String get fullImageUrl {
     if (Platform.isAndroid) {
-      return "http://10.0.2.2:6013";
+      return "http://10.0.2.2:6013/";
     } else if (Platform.isIOS) {
-      return "http://127.0.0.1:6013";
+      return "http://127.0.0.1:6013/";
     } else {
-      return "http://localhost:6013";
+      return "http://localhost:6013/";
     }
   }
 
@@ -36,5 +36,6 @@ class AppConfig {
   static const applicationUrl = "/api/applications";
   static const applicationsByUserUrl = "api/applications/applicationsbyuser";
   static const applicationByCompanyUrl="api/applications/applicationsbycompany";
+  static const applicationStatusUrl="api/applications/applicationstatus";
   static const favouriteUrl = "/api/favourites";
 }

@@ -4,7 +4,9 @@ import 'package:jobboardhrapp/features/application/data/datasource/application_r
 import 'package:jobboardhrapp/features/application/data/repository/application_repository.dart';
 import 'package:jobboardhrapp/features/application/domain/repository/application_repository.dart';
 import 'package:jobboardhrapp/features/application/domain/usecase/get_application_use_case.dart';
+import 'package:jobboardhrapp/features/application/domain/usecase/update_application_status_usecase.dart';
 import 'package:jobboardhrapp/features/application/presentation/bloc/application_bloc.dart';
+import 'package:jobboardhrapp/features/application/presentation/screen/application_screen.dart';
 import 'package:jobboardhrapp/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:jobboardhrapp/features/auth/data/repositories/auth_repository.dart';
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
@@ -105,9 +107,11 @@ void _initApplications() {
     )
     //Usecases
     ..registerFactory(() => GetApplicationUseCase(serviceLocator()))
+    ..registerFactory(()=>UpdateApplicationUseCase(serviceLocator()))
     ..registerLazySingleton(
       () => ApplicationBloc(
         getApplicationUseCase: serviceLocator<GetApplicationUseCase>(),
+        updateApplicationUsecase: serviceLocator<UpdateApplicationUseCase>()
       ),
     );
 }

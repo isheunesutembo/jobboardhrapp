@@ -13,6 +13,7 @@ class VacancyRepositoryImpl implements VacancyRepository {
     required String title,
     required String description,
     required String requirements,
+    required String experience,
     required List<String> skillTags,
     required String salary,
     required String category,
@@ -24,6 +25,7 @@ class VacancyRepositoryImpl implements VacancyRepository {
         description: description,
         requirements: requirements,
         skillTags: skillTags,
+        experience:experience,
         salary: salary,
         category: category,
        

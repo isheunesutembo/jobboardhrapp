@@ -5,4 +5,5 @@ import 'package:jobboardhrapp/features/application/data/models/application_model
 
 abstract interface class ApplicationRepository{
   Future<Either<Failure,List<ApplicationModel>>>getApplicationsByCompanyId();
+  Future<Either<Failure,String>>updateApplicationStatus(String applicationId,String status);
 }

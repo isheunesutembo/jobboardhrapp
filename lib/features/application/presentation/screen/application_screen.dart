@@ -6,6 +6,7 @@ import 'package:jobboardhrapp/features/vacancies/presentation/widgets/empy_view.
 import 'package:jobboardhrapp/util/color.dart';
 import 'package:jobboardhrapp/util/error_text.dart';
 import 'package:jobboardhrapp/util/loader.dart';
+import 'package:jobboardhrapp/util/utils.dart';
 
 class ApplicationsScreen extends StatefulWidget {
   const ApplicationsScreen({super.key});
@@ -29,6 +30,11 @@ with SingleTickerProviderStateMixin{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text("Vacancy Applications",style: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold
+        ),),
         bottom: TabBar(indicatorColor: Colors.red,controller: _tabController, tabs: const [
           Text(
             "Pending",
@@ -64,7 +70,11 @@ with SingleTickerProviderStateMixin{
             return const EmptyView();
 
           }
-           return ApplicationListScreen(state.applicationModel);
+           return TabBarView(controller: _tabController,children: [
+            ApplicationListScreen(filterApplications(state.applicationModel, "Pending")),
+            ApplicationListScreen(filterApplications(state.applicationModel, "Accepted")),
+            ApplicationListScreen(filterApplications(state.applicationModel, "Rejected"))
+           ]);
         }
        
       return const SizedBox.shrink();

@@ -11,6 +11,7 @@ abstract interface class VacancyRepository {
     required String title,
    required String description,
    required String requirements,
+   required String experience,
    required List<String>skillTags,
    required String salary,
    required String category,

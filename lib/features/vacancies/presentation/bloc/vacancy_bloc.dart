@@ -9,46 +9,60 @@ import 'package:jobboardhrapp/features/vacancies/domain/use_case/getting_vacancy
 import 'package:jobboardhrapp/features/vacancies/presentation/screen/vancancies_screen.dart';
 part 'vacancy_state.dart';
 part 'vacancy_event.dart';
-class VacancyBloc extends Bloc<VacancyEvent,VacancyState>{
+
+class VacancyBloc extends Bloc<VacancyEvent, VacancyState> {
   final CreateVacancyUseCase _createVacancyUseCase;
   final GettingVacancyUsecase _gettingVacancyUsecase;
 
-  VacancyBloc({required CreateVacancyUseCase createVacancyUseCase,
-  required GettingVacancyUsecase gettingVacancyUsecase}):_createVacancyUseCase=createVacancyUseCase,
-  _gettingVacancyUsecase=gettingVacancyUsecase,
-  super(VacancyInitial()){
+  VacancyBloc({
+    required CreateVacancyUseCase createVacancyUseCase,
+    required GettingVacancyUsecase gettingVacancyUsecase,
+  }) : _createVacancyUseCase = createVacancyUseCase,
+       _gettingVacancyUsecase = gettingVacancyUsecase,
+       super(VacancyInitial()) {
     on<CreateVacancy>(_onCreatingVacancy);
     on<GetVacancies>(_onGettingVacancyByCompanyId);
-
   }
-   void _onCreatingVacancy(CreateVacancy event ,Emitter<VacancyState>emit)async{
+  void _onCreatingVacancy(
+    CreateVacancy event,
+    Emitter<VacancyState> emit,
+  ) async {
     emit(VacancyLoading());
-    final Either<Failure,VacancyModel>res=await _createVacancyUseCase(
-      CreateVacancyParams(title: event.title, description: event.description, requirements: event.requirements, skillTags: event.skillTags, salary: event.salary, category: event.category,)
+    final Either<Failure, VacancyModel> res = await _createVacancyUseCase(
+      CreateVacancyParams(
+        title: event.title,
+        description: event.description,
+        requirements: event.requirements,
+        skillTags: event.skillTags,
+        experience: event.experience,
+        salary: event.salary,
+        category: event.category,
+      ),
     );
 
-    switch(res){
-      case Left(value:final failure):
-      emit(VacancyFailure(failure.message));
+    switch (res) {
+      case Left(value: final failure):
+        emit(VacancyFailure(failure.message));
 
-      case Right(value:final success):
-      emit(CreateVacancySuccess(success));
+      case Right(value: final success):
+        emit(CreateVacancySuccess(success));
     }
-   }
-
-   void _onGettingVacancyByCompanyId(GetVacancies event ,Emitter<VacancyState>emit)async{
-    emit(VacancyLoading());
-
-    final res=await _gettingVacancyUsecase(NoParams());
-
-  switch(res){
-    case Left(value:final failure):
-    emit(VacancyFailure(failure.message));
-
-    case Right(value:final success):
-    emit(GettingVacanciesSuccess(success));
   }
 
-   }
+  void _onGettingVacancyByCompanyId(
+    GetVacancies event,
+    Emitter<VacancyState> emit,
+  ) async {
+    emit(VacancyLoading());
 
+    final res = await _gettingVacancyUsecase(NoParams());
+
+    switch (res) {
+      case Left(value: final failure):
+        emit(VacancyFailure(failure.message));
+
+      case Right(value: final success):
+        emit(GettingVacanciesSuccess(success));
+    }
+  }
 }

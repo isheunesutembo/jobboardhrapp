@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/bloc/vacancy_bloc.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/widgets/empy_view.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/widgets/vacancies_list.dart';
-import 'package:jobboardhrapp/features/vacancies/presentation/widgets/vacancy_item_widget.dart';
 import 'package:jobboardhrapp/util/color.dart';
 import 'package:jobboardhrapp/util/error_text.dart';
 import 'package:jobboardhrapp/util/loader.dart';
@@ -14,12 +13,18 @@ class VancanciesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      appBar: AppBar(
+        title: Text("Vacancies",style: TextStyle(
+          color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold
+        ),),
+      ),
       backgroundColor: AppColors.backgroundColor,
       body: BlocBuilder<VacancyBloc,VacancyState>(
         buildWhen: (previous,current)=>
         current is VacancyLoading||
         current is GettingVacanciesSuccess||
         current is VacancyFailure,builder: (context,state){
+
 
           if(state is VacancyLoading){
             return const Loader();
