@@ -5,7 +5,7 @@ part 'user_model.g.dart';
 
 @freezed
 abstract class UserModel with _$UserModel {
-  @JsonSerializable()
+  
   factory UserModel({
      String? userId,
     String? username,

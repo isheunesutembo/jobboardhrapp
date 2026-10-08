@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:jobboardhrapp/features/resume/data/model/resume_model.dart';
-
+@immutable
 class ResumeWidget extends StatefulWidget {
-  ResumeModel resume;
-  ResumeWidget({super.key, required this.resume});
+ final ResumeModel resume;
+ const ResumeWidget({super.key, required this.resume});
 
   @override
   State<ResumeWidget> createState() => _ResumeWidgetState();

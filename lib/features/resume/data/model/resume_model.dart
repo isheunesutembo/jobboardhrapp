@@ -5,7 +5,7 @@ part 'resume_model.g.dart';
 
 @freezed
 abstract class ResumeModel with _$ResumeModel {
-  @JsonSerializable()
+ 
   factory ResumeModel({
     @JsonKey(name: "_id") String? id,
     String? title,

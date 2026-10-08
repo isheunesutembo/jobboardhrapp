@@ -7,7 +7,7 @@ import 'package:jobboardhrapp/util/loader.dart';
 import 'package:jobboardhrapp/util/utils.dart';
 
 class RegisterScreen extends StatefulWidget {
-  static route() => MaterialPageRoute(builder: (context) => RegisterScreen());
+  static MaterialPageRoute<dynamic> route() => MaterialPageRoute(builder: (context) => RegisterScreen());
   const RegisterScreen({super.key});
 
   @override

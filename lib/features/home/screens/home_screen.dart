@@ -5,7 +5,7 @@ import 'package:jobboardhrapp/features/vacancies/presentation/screen/add_vacancy
 import 'package:jobboardhrapp/features/vacancies/presentation/screen/vancancies_screen.dart';
 
 class HomeScreen extends StatefulWidget {
-   static route() => MaterialPageRoute(builder: (context) => HomeScreen());
+   static MaterialPageRoute<dynamic> route() => MaterialPageRoute(builder: (context) => HomeScreen());
   const HomeScreen({super.key});
 
   @override

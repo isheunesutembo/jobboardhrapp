@@ -49,6 +49,7 @@ dependencies:
   flutter_cached_pdfview: ^0.4.3
   dio: ^5.8.0+1
 
+  freezed_annotation: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

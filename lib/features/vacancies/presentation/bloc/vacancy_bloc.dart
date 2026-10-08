@@ -6,7 +6,6 @@ import 'package:jobboardhrapp/core/usecase/use_case.dart';
 import 'package:jobboardhrapp/features/vacancies/data/model/vacancy_model.dart';
 import 'package:jobboardhrapp/features/vacancies/domain/use_case/create_vacancy_usecase.dart';
 import 'package:jobboardhrapp/features/vacancies/domain/use_case/getting_vacancy_usecase.dart';
-import 'package:jobboardhrapp/features/vacancies/presentation/screen/vancancies_screen.dart';
 part 'vacancy_state.dart';
 part 'vacancy_event.dart';
 

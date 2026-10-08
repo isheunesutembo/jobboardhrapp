@@ -9,7 +9,7 @@ import 'package:jobboardhrapp/util/loader.dart';
 import 'package:jobboardhrapp/util/utils.dart';
 
 class AddVacancyScreen extends StatefulWidget {
-  static route() => MaterialPageRoute(builder: (context) => AddVacancyScreen());
+  static MaterialPageRoute<dynamic> route() => MaterialPageRoute(builder: (context) => AddVacancyScreen());
   const AddVacancyScreen({super.key});
 
   @override

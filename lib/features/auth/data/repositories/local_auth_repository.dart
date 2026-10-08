@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalAuthRepository {
- late SharedPreferences _sharedPreferences;
+ late final SharedPreferences _sharedPreferences;
  LocalAuthRepository(this._sharedPreferences);
   
   void setToken(String? token){
