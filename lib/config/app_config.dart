@@ -38,4 +38,5 @@ class AppConfig {
   static const applicationByCompanyUrl="api/applications/applicationsbycompany";
   static const applicationStatusUrl="api/applications/applicationstatus";
   static const favouriteUrl = "/api/favourites";
+
 }

@@ -6,15 +6,14 @@ part of 'resume_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ResumeModelImpl _$$ResumeModelImplFromJson(Map<String, dynamic> json) =>
-    _$ResumeModelImpl(
-      id: json['_id'] as String?,
-      title: json['title'] as String?,
-      resume: json['resume'] as String?,
-      userId: json['userId'] as String?,
-    );
+_ResumeModel _$ResumeModelFromJson(Map<String, dynamic> json) => _ResumeModel(
+  id: json['_id'] as String?,
+  title: json['title'] as String?,
+  resume: json['resume'] as String?,
+  userId: json['userId'] as String?,
+);
 
-Map<String, dynamic> _$$ResumeModelImplToJson(_$ResumeModelImpl instance) =>
+Map<String, dynamic> _$ResumeModelToJson(_ResumeModel instance) =>
     <String, dynamic>{
       '_id': instance.id,
       'title': instance.title,
