@@ -36,7 +36,7 @@ void main() {
       expect(authBloc.state, isA<AuthInitial>());
     });
     
-    final tCompanyModel = CompanyModel(id: '1', name: 'Test', address: 'Address', phoneNumber: '123456');
+    final tCompanyModel = CompanyModel(companyId: '1', name: 'Test', address: 'Address', phoneNumber: '123456');
 
     blocTest<AuthBloc, AuthState>(
       'emits [AuthLoading, AuthSuccess] when AuthLogin is added and login is successful',
@@ -57,7 +57,7 @@ void main() {
       'emits [AuthLoading, AuthFailure] when AuthLogin is added and login fails',
       build: () {
         when(mockCompanyLogInUseCase(any)).thenAnswer(
-          (_) async => Left(ServerFailure('Login failed')),
+          (_) async => Left(Failure('Login failed')),
         );
         return authBloc;
       },

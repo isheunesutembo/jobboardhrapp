@@ -6,7 +6,7 @@ part of 'vacancy_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$VacancyModelImpl _$$VacancyModelImplFromJson(Map json) => _$VacancyModelImpl(
+_VacancyModel _$VacancyModelFromJson(Map json) => _VacancyModel(
   title: json['title'] as String?,
   description: json['description'] as String?,
   requirements: json['requirements'] as String?,
@@ -18,7 +18,7 @@ _$VacancyModelImpl _$$VacancyModelImplFromJson(Map json) => _$VacancyModelImpl(
   vacancyId: json['vacancyId'] as String?,
 );
 
-Map<String, dynamic> _$$VacancyModelImplToJson(_$VacancyModelImpl instance) =>
+Map<String, dynamic> _$VacancyModelToJson(_VacancyModel instance) =>
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,
