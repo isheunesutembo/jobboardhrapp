@@ -1,5 +1,5 @@
-import 'package:fpdart/fpdart.dart';
-import 'package:jobboardhrapp/core/error/failures.dart' hide Failure;
+import 'package:fpdart/fpdart.dart' hide Failure;
+import 'package:jobboardhrapp/core/error/failures.dart';
 import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
 
 abstract interface class CompanyProfileRepository {

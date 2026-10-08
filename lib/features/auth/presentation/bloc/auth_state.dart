@@ -11,7 +11,7 @@ final class AuthLoading extends AuthState {}
 
 final class AuthSuccess extends AuthState {
   final CompanyModel companyModel;
-  AuthSuccess(this.companyModel);
+  const AuthSuccess(this.companyModel);
 }
 
 final class AuthAuthenticated extends AuthState {}

@@ -9,7 +9,7 @@ import 'package:jobboardhrapp/util/loader.dart';
 import 'package:jobboardhrapp/util/utils.dart';
 
 class SignInScreen extends StatefulWidget {
-  static route() => MaterialPageRoute(builder: (context) => SignInScreen());
+  static MaterialPageRoute<dynamic> route() => MaterialPageRoute(builder: (context) => SignInScreen());
   const SignInScreen({super.key});
 
   @override

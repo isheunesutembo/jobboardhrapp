@@ -8,10 +8,10 @@ import 'package:jobboardhrapp/features/auth/presentation/widgets/vacancy_applica
 import 'package:jobboardhrapp/features/resume/presentation/screen/resume_detail_screen.dart';
 import 'package:jobboardhrapp/util/loader.dart';
 import 'package:jobboardhrapp/util/utils.dart';
-
+@immutable
 class ApplicationItemWidget extends StatelessWidget {
-  ApplicationModel applicationModel;
-  ApplicationItemWidget({super.key, required this.applicationModel});
+ final ApplicationModel applicationModel;
+ const ApplicationItemWidget({super.key, required this.applicationModel});
 
   @override
   Widget build(BuildContext context) {

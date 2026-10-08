@@ -1,9 +1,9 @@
 
 import 'package:flutter/material.dart';
-
+@immutable
 class CustomCircleIconWidget extends StatelessWidget {
-  Widget icon;
-  CustomCircleIconWidget({super.key, required this.icon});
+  final Widget icon;
+ const CustomCircleIconWidget({super.key, required this.icon});
 
   @override
   Widget build(BuildContext context) {

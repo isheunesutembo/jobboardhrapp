@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+@immutable
 class VacancyTags extends StatelessWidget {
-  String tag;
-   VacancyTags({super.key,required this.tag});
+ final  String tag;
+  const  VacancyTags({super.key,required this.tag});
 
   @override
   Widget build(BuildContext context) {

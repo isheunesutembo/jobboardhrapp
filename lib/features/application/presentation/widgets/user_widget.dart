@@ -1,10 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:jobboardhrapp/features/user/data/model/user_model.dart';
-
+@immutable
 class UserWidget extends StatelessWidget {
-  UserModel user;
-   UserWidget({super.key,required this.user});
+ final UserModel user;
+  const UserWidget({super.key,required this.user});
 
   @override
   Widget build(BuildContext context) {

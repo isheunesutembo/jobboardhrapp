@@ -1,4 +1,5 @@
-import 'package:fpdart/src/effect.dart';
+
+import 'package:fpdart/fpdart.dart' hide Failure;
 import 'package:jobboardhrapp/core/error/failures.dart';
 import 'package:jobboardhrapp/core/usecase/use_case.dart';
 import 'package:jobboardhrapp/features/vacancies/data/model/vacancy_model.dart';

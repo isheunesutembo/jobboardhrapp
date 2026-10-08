@@ -5,7 +5,7 @@ part 'company_model.g.dart';
 @freezed
 
 abstract class CompanyModel with _$CompanyModel {
-  @JsonSerializable(explicitToJson: true, anyMap: true)
+  
   factory CompanyModel({
  
     String? password,

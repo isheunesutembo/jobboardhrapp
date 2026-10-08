@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fpdart/fpdart.dart';
+import 'package:fpdart/fpdart.dart' hide Failure;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
@@ -9,7 +9,6 @@ import 'package:jobboardhrapp/features/auth/domain/usecases/company_signup.dart'
 import 'package:jobboardhrapp/features/auth/domain/usecases/is_user_logged_in.dart';
 import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
 import 'package:jobboardhrapp/core/error/failures.dart';
-import 'package:jobboardhrapp/core/usecase/use_case.dart';
 
 import 'auth_bloc_test.mocks.dart';
 

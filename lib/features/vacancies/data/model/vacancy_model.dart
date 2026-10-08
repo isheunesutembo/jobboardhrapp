@@ -1,5 +1,4 @@
 import'package:freezed_annotation/freezed_annotation.dart';
-import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
 
 part 'vacancy_model.freezed.dart';
 part 'vacancy_model.g.dart';
@@ -8,7 +7,7 @@ List<VacancyModel> vacanciesFromJson(dynamic str) =>
 @freezed
 
 abstract class VacancyModel with _$VacancyModel{
-@JsonSerializable(explicitToJson: true,anyMap: true)
+
 factory VacancyModel
 ({
   String? title,

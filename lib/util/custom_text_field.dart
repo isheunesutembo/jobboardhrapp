@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
+@immutable
 class CustomTextField extends StatelessWidget {
   final String? hintText;
   final Widget? label;
-  TextEditingController controller;
-  CustomTextField(
+ final TextEditingController controller;
+  const CustomTextField(
       {super.key, this.hintText, this.label, required this.controller});
 
   @override

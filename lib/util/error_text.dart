@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-
+@immutable
 class ErrorText extends StatelessWidget {
-  String error;
-   ErrorText( {super.key,required this.error});
+ final String error;
+  const ErrorText( {super.key,required this.error});
 
   @override
   Widget build(BuildContext context) {

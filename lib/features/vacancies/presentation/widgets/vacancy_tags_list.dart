@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jobboardhrapp/features/vacancies/data/model/vacancy_model.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/widgets/vacancy_tags.dart';
-
+@immutable
 class VacancyTagsList extends StatelessWidget {
-  VacancyModel vacancy;
-   VacancyTagsList({super.key,required this.vacancy});
+ final  VacancyModel vacancy;
+ const  VacancyTagsList({super.key,required this.vacancy});
 
   @override
   Widget build(BuildContext context) {

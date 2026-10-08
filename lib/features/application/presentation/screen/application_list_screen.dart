@@ -5,7 +5,7 @@ import 'package:jobboardhrapp/features/application/presentation/widgets/applicat
 
 class ApplicationListScreen extends StatelessWidget {
   final List<ApplicationModel> applications;
-   ApplicationListScreen(this.applications);
+   const ApplicationListScreen(this.applications, {super.key});
 
   @override
   Widget build(BuildContext context) {
