@@ -27,7 +27,7 @@ void main() {
     
     // ignore: unused_local_variable
     final tCompanyModel = CompanyModel(
-      id: '1',
+      companyId: '1',
       name: 'Test Company',
       address: 'Test Address',
       phoneNumber: '123456789',
@@ -81,7 +81,7 @@ void main() {
 
       // assert
       expect(result, isA<CompanyModel>());
-      expect(result.id, '1');
+      expect(result.companyId, '1');
     });
 
     test('should cache the token and userId when the call is successful', () async {

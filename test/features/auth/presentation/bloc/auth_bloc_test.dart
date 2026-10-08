@@ -1,6 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fpdart/fpdart.dart';
+import 'package:fpdart/fpdart.dart' hide Failure;
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
