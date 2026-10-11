@@ -13,7 +13,7 @@ abstract class ApplicationModel with _$ApplicationModel {
   
 
   factory ApplicationModel({
-    @JsonKey(name: "_id") String? id,
+    @JsonKey(name: "applicationId", readValue: _readApplicationId) String? id,
     String? status,
     CompanyModel? company,
     ResumeModel? resume,
@@ -24,3 +24,6 @@ abstract class ApplicationModel with _$ApplicationModel {
   factory ApplicationModel.fromJson(Map<String, dynamic> json) =>
       _$ApplicationModelFromJson(json);
 }
+
+Object? _readApplicationId(Map json, String key) =>
+    json['applicationId'] ?? json['_id'];

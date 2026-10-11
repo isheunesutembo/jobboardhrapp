@@ -42,7 +42,10 @@ class ApplicationRemoteDataSourceImpl implements ApplicationRemoteDataSource {
   
   @override
   Future<String> updateApplicationStatus(String applicationId, String status) async{
-   
+    if (applicationId.isEmpty || applicationId == 'null') {
+      throw Exception('Application id is missing');
+    }
+
     Map<String, String> requestHeaders = {
       "Accept": "application/json",
       "Content-Type": "application/json",
