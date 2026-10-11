@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ApplicationModel {
 
-@JsonKey(name: "_id") String? get id; String? get status; CompanyModel? get company; ResumeModel? get resume; UserModel? get userId; VacancyModel? get vacancyId;
+@JsonKey(name: "applicationId", readValue: _readApplicationId) String? get id; String? get status; CompanyModel? get company; ResumeModel? get resume; UserModel? get userId; VacancyModel? get vacancyId;
 /// Create a copy of ApplicationModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ApplicationModelCopyWith<$Res>  {
   factory $ApplicationModelCopyWith(ApplicationModel value, $Res Function(ApplicationModel) _then) = _$ApplicationModelCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: "_id") String? id, String? status, CompanyModel? company, ResumeModel? resume, UserModel? userId, VacancyModel? vacancyId
+@JsonKey(name: "applicationId", readValue: _readApplicationId) String? id, String? status, CompanyModel? company, ResumeModel? resume, UserModel? userId, VacancyModel? vacancyId
 });
 
 
@@ -206,7 +206,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "_id")  String? id,  String? status,  CompanyModel? company,  ResumeModel? resume,  UserModel? userId,  VacancyModel? vacancyId)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: "applicationId", readValue: _readApplicationId)  String? id,  String? status,  CompanyModel? company,  ResumeModel? resume,  UserModel? userId,  VacancyModel? vacancyId)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ApplicationModel() when $default != null:
 return $default(_that.id,_that.status,_that.company,_that.resume,_that.userId,_that.vacancyId);case _:
@@ -227,7 +227,7 @@ return $default(_that.id,_that.status,_that.company,_that.resume,_that.userId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "_id")  String? id,  String? status,  CompanyModel? company,  ResumeModel? resume,  UserModel? userId,  VacancyModel? vacancyId)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: "applicationId", readValue: _readApplicationId)  String? id,  String? status,  CompanyModel? company,  ResumeModel? resume,  UserModel? userId,  VacancyModel? vacancyId)  $default,) {final _that = this;
 switch (_that) {
 case _ApplicationModel():
 return $default(_that.id,_that.status,_that.company,_that.resume,_that.userId,_that.vacancyId);case _:
@@ -247,7 +247,7 @@ return $default(_that.id,_that.status,_that.company,_that.resume,_that.userId,_t
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "_id")  String? id,  String? status,  CompanyModel? company,  ResumeModel? resume,  UserModel? userId,  VacancyModel? vacancyId)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: "applicationId", readValue: _readApplicationId)  String? id,  String? status,  CompanyModel? company,  ResumeModel? resume,  UserModel? userId,  VacancyModel? vacancyId)?  $default,) {final _that = this;
 switch (_that) {
 case _ApplicationModel() when $default != null:
 return $default(_that.id,_that.status,_that.company,_that.resume,_that.userId,_that.vacancyId);case _:
@@ -259,13 +259,13 @@ return $default(_that.id,_that.status,_that.company,_that.resume,_that.userId,_t
 }
 
 /// @nodoc
+@JsonSerializable()
 
-@JsonSerializable(explicitToJson: true, anyMap: true)
 class _ApplicationModel implements ApplicationModel {
-   _ApplicationModel({@JsonKey(name: "_id") this.id, this.status, this.company, this.resume, this.userId, this.vacancyId});
+   _ApplicationModel({@JsonKey(name: "applicationId", readValue: _readApplicationId) this.id, this.status, this.company, this.resume, this.userId, this.vacancyId});
   factory _ApplicationModel.fromJson(Map<String, dynamic> json) => _$ApplicationModelFromJson(json);
 
-@override@JsonKey(name: "_id") final  String? id;
+@override@JsonKey(name: "applicationId", readValue: _readApplicationId) final  String? id;
 @override final  String? status;
 @override final  CompanyModel? company;
 @override final  ResumeModel? resume;
@@ -305,7 +305,7 @@ abstract mixin class _$ApplicationModelCopyWith<$Res> implements $ApplicationMod
   factory _$ApplicationModelCopyWith(_ApplicationModel value, $Res Function(_ApplicationModel) _then) = __$ApplicationModelCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: "_id") String? id, String? status, CompanyModel? company, ResumeModel? resume, UserModel? userId, VacancyModel? vacancyId
+@JsonKey(name: "applicationId", readValue: _readApplicationId) String? id, String? status, CompanyModel? company, ResumeModel? resume, UserModel? userId, VacancyModel? vacancyId
 });
 
 

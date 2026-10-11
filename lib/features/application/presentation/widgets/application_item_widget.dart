@@ -61,8 +61,12 @@ class ApplicationItemWidget extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
+                        final applicationId = applicationModel.id;
+                        if (applicationId == null || applicationId.isEmpty) {
+                          return;
+                        }
                         context.read<ApplicationBloc>()
-                        .add(UpdateApplicationStatus(applicationId: applicationModel.id.toString(), status: "Accepted"));
+                        .add(UpdateApplicationStatus(applicationId: applicationId, status: "Accepted"));
                         
                       },
                       style: ElevatedButton.styleFrom(
@@ -78,8 +82,12 @@ class ApplicationItemWidget extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
+                          final applicationId = applicationModel.id;
+                          if (applicationId == null || applicationId.isEmpty) {
+                            return;
+                          }
                           context.read<ApplicationBloc>()
-                        .add(UpdateApplicationStatus(applicationId: applicationModel.id.toString(), status: "Rejected"));
+                        .add(UpdateApplicationStatus(applicationId: applicationId, status: "Rejected"));
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
