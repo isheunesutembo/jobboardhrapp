@@ -247,3 +247,111 @@ Contributions, suggestions, and improvements are welcome.
 ---
 
 Built with ❤️ using Flutter and Dart.
+
+
+
+## Github Actions Workflow
+name: Flutter CI
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.35.0'
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+About
+
+No description, website, or topics provided.
+Resources
+Readme
+Activity
+Stars
+1 star
+Watchers
+1 watching
+Forks
+0 forks
+Releases
+No releases published
+Create a new release
+Packages
+No packages published
+Publish your first package
+Contributors
+1
+ (1)
+@isheunesutembo
+isheunesutemboIsheunesu Tembo
+Languages
+C++
+33.1%
+C
+29.9%
+CMake
+19.2%
+Dart
+17%
+Ruby
+0.3%
+Swift
+0.3%
+Other
+0.2%
+Suggested workflows
+Based on your tech stack
+
+MSBuild based projects logo
+MSBuild based projects
+Build a MSBuild based project.
+By GitHub Actions
+SLSA Generic generator logo
+SLSA Generic generator
+Generate SLSA3 provenance for your existing release workflows
+By Open Source Security Foundation (OpenSSF)
+CMake based, single-platform projects logo
+CMake based, single-platform projects
+Build and test a CMake based project on a single-platform.
+By GitHub Actions
+More workflows
+Footer
+© 2026 GitHub, Inc.
+Footer navigation
+Terms
