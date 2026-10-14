@@ -34,9 +34,9 @@ class AppConfig {
   static const companiesUrl = "/api/companies";
   static const resumeUrl = '/api/resumes';
   static const applicationUrl = "/api/applications";
-  static const applicationsByUserUrl = "api/applications/applicationsbyuser";
-  static const applicationByCompanyUrl="api/applications/applicationsbycompany";
-  static const applicationStatusUrl="api/applications/applicationstatus";
+  static const applicationsByUserUrl = "/api/applications/applicationsbyuser";
+  static const applicationByCompanyUrl="/api/applications/applicationsbycompany";
+  static const applicationStatusUrl="/api/applications/applicationstatus";
   static const favouriteUrl = "/api/favourites";
 
 }

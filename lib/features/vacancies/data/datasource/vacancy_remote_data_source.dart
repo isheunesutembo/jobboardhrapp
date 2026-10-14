@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'package:jobboardhrapp/config/app_config.dart';
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
@@ -20,10 +21,10 @@ abstract class VacancyRemoteDataSource {
 }
 
 class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource {
-  final http.Client _client;
+  final Dio _dio;
   final LocalAuthRepository _localAuthRepository;
 
-  VacancyRemoteDataSourceImpl(this._client, this._localAuthRepository);
+  VacancyRemoteDataSourceImpl(this._dio, this._localAuthRepository);
   @override
   Future<VacancyModel> addVacancy({
     required String title,
@@ -38,10 +39,11 @@ class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource {
       "Accept": "application/json",
       "Content-Type": "application/json",
     };
+    final companyId = await _localAuthRepository.getUserId();
 
-    final response = await _client.post(
-      Uri.parse(AppConfig.baseUrl + AppConfig.vacanciesUrl),
-      body: jsonEncode({
+    final response = await _dio.post(
+      AppConfig.vacanciesUrl,
+      data: {
         "title": title,
         "description": description,
         "requirements": requirements,
@@ -50,46 +52,31 @@ class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource {
         "salary": salary,
         "category": category,
         "company": "${_localAuthRepository.getUserId()}",
-      }),
-      headers: requestHeaders,
+      },
+
+      queryParameters: {'company': companyId},
     );
 
     if (response.statusCode == 200 || response.statusCode == 201) {
-      // Only attempt to decode JSON on successful responses.
-      final data = jsonDecode(response.body) as Map<String, dynamic>;
+      final data = jsonDecode(response.data);
       return VacancyModel.fromJson(data);
     }
-
-    // Non-2xx responses might be HTML (login page / 404 / proxy error),
-    // so avoid jsonDecode and surface the body for debugging.
     throw Exception(
-      'Failed to upload vacancy (HTTP ${response.statusCode}): ${response.body}',
+      'Failed to upload vacancy (HTTP ${response.statusCode}): ${response.data}',
     );
   }
 
   @override
   Future<List<VacancyModel>> getVacanciesByCompanyId() async {
-    final token = _localAuthRepository.getUserToken();
-
-    final Map<String, String> requestHeaders = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-      if (token != null) "Authorization": "Bearer $token",
-    };
-    var url = Uri.parse(
-      "${AppConfig.baseUrl}${AppConfig.vacanciesUrl}/company/${_localAuthRepository.getUserId()}",
-    );
-    final response = await _client.get(url, headers: requestHeaders);
-
+    final response = await _dio.get(AppConfig.vacanciesUrl);
     if (response.statusCode == 200) {
-      final data = jsonDecode(response.body) as Map<String, dynamic>;
-      final vacancies = data['vacancies'];
+      final data = response.data as Map<String,dynamic>;
+      final vacancies = data['vacancies'] ;
       return vacanciesFromJson(vacancies);
     }
-
     // Non-200 responses might be HTML (proxy/login/404), so don't jsonDecode here.
     throw Exception(
-      'Getting vacancies failed (HTTP ${response.statusCode}): ${response.body}',
+      'Getting vacancies failed (HTTP ${response.statusCode}): ${response.data}',
     );
   }
 }

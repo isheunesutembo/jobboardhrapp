@@ -2,9 +2,9 @@
 
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:jobboardhrapp/config/app_config.dart';
 import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
-import 'package:http/http.dart' as http;
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
 abstract class CompanyProfileRemoteDataSource{
 
@@ -13,10 +13,10 @@ abstract class CompanyProfileRemoteDataSource{
 }
 
 class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSource{
-  final http.Client _client;
+  final Dio _dio;
   final LocalAuthRepository _localAuthRepository;
 
-  CompanyProfileRemoteDataSourceImpl(this._client,
+  CompanyProfileRemoteDataSourceImpl(this._dio,
   this._localAuthRepository);
 
   @override
@@ -26,9 +26,10 @@ class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSour
       "Content-Type":"application/json",
       "Authorization":"Bearer ${_localAuthRepository.getUserToken()}"
     };
+    final companyId=await _localAuthRepository.getUserToken();
     var url=Uri.parse("${AppConfig.baseUrl}/${AppConfig.companiesUrl}/${_localAuthRepository.getUserId()}");
-    var response=await _client.get(url,headers: requestHeaders);
-    var data=jsonDecode(response.body);
+    var response=await _dio.get('${AppConfig.companiesUrl}/$companyId');
+    var data=jsonDecode(response.data);
     try{
       if(response.statusCode==200){
         return CompanyModel.fromJson(data);
@@ -48,11 +49,11 @@ class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSour
       "Authorization":"Bearer ${_localAuthRepository.getUserToken()}"
     };
 
-    final response=await _client.patch(Uri.parse(AppConfig.baseUrl+AppConfig.companiesUrl),
-    body: jsonEncode({"name":name,"address":address,"phoneNumber":phoneNumber}),headers: requestHeaders);
+    final response=await _dio.patch(AppConfig.companiesUrl,
+    data:{"name":name,"address":address,"phoneNumber":phoneNumber});
 
     if(response.statusCode==200||response.statusCode==201){
-      final data=jsonDecode(response.body) as Map<String,dynamic>;
+      final data=jsonDecode(response.data) as Map<String,dynamic>;
       return CompanyModel.fromJson(data);
     }
     throw Exception(

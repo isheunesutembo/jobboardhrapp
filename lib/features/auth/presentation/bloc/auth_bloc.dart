@@ -77,4 +77,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthSuccess(success));
     }
   }
+   void _onLoggedOut(LoggedOut event, Emitter<AuthState> emit) {
+    // AuthInterceptor already called _localAuthRepository.clearSession(),
+    // so there's nothing to clear here, just update the state.
+    emit(AuthUnauthenticated());
+  }
 }

@@ -1,5 +1,8 @@
+
+import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:jobboardhrapp/dio.dart';
 import 'package:jobboardhrapp/features/application/data/datasource/application_remote_data_source.dart';
 import 'package:jobboardhrapp/features/application/data/repository/application_repository.dart';
 import 'package:jobboardhrapp/features/application/domain/repository/application_repository.dart';
@@ -26,7 +29,7 @@ final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
   serviceLocator.registerLazySingleton(() => http.Client());
-
+  serviceLocator.registerLazySingleton<Dio>(()=>createDio(serviceLocator<LocalAuthRepository>(), ()=>serviceLocator<AuthBloc>().add(LoggedOut())));
   final sharedPreferences = await SharedPreferences.getInstance();
   serviceLocator.registerSingleton<SharedPreferences>(sharedPreferences);
 
@@ -44,7 +47,7 @@ void _initAuth() {
   serviceLocator
     ..registerFactory<AuthRemoteDataSource>(
       () => AuthRemoteDataSourceImpl(
-        serviceLocator<http.Client>(),
+        serviceLocator<Dio>(),
         serviceLocator<LocalAuthRepository>(),
       ),
     )
@@ -70,7 +73,7 @@ void _initVacancies() {
   serviceLocator
     ..registerFactory<VacancyRemoteDataSource>(
       () => VacancyRemoteDataSourceImpl(
-        serviceLocator<http.Client>(),
+        serviceLocator<Dio>(),
         serviceLocator<LocalAuthRepository>(),
       ),
     )
@@ -94,7 +97,7 @@ void _initApplications() {
   serviceLocator
     ..registerFactory<ApplicationRemoteDataSource>(
       () => ApplicationRemoteDataSourceImpl(
-        serviceLocator<http.Client>(),
+        serviceLocator<Dio>(),
         serviceLocator<LocalAuthRepository>(),
       ),
     )
