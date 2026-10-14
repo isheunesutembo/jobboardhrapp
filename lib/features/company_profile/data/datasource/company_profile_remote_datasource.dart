@@ -57,7 +57,7 @@ class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSour
       return CompanyModel.fromJson(data);
     }
     throw Exception(
-      'Failed to upload vacancy (HTTP ${response.statusCode}): ${response.body}',
+      'Failed to upload vacancy (HTTP ${response.statusCode}): ${response.data}',
     );
 
   }
