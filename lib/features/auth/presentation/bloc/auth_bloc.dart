@@ -26,6 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthSignUp>(_onAuthSignUp);
     on<AuthLogin>(_onAuthLogIn);
     on<AuthUserLoggedIn>(_onAuthUserLoggedIn);
+    on<LoggedOut>(_onLoggedOut);
   }
 
   void _onAuthUserLoggedIn(
@@ -78,8 +79,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
    void _onLoggedOut(LoggedOut event, Emitter<AuthState> emit) {
-    // AuthInterceptor already called _localAuthRepository.clearSession(),
-    // so there's nothing to clear here, just update the state.
+    
     emit(AuthUnauthenticated());
   }
 }

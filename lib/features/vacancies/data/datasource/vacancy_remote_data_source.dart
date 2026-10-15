@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
+
 import 'package:jobboardhrapp/config/app_config.dart';
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
 import 'package:jobboardhrapp/features/vacancies/data/model/vacancy_model.dart';
@@ -35,11 +35,8 @@ class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource {
     required String salary,
     required String category,
   }) async {
-    Map<String, String> requestHeaders = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    };
-    final companyId = await _localAuthRepository.getUserId();
+    
+    final companyId =  _localAuthRepository.getUserId();
 
     final response = await _dio.post(
       AppConfig.vacanciesUrl,

@@ -21,13 +21,9 @@ class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSour
 
   @override
   Future<CompanyModel> getCompanyProfile(String id) async{
-    Map<String,String>requestHeaders={
-      "Accept":"application/json",
-      "Content-Type":"application/json",
-      "Authorization":"Bearer ${_localAuthRepository.getUserToken()}"
-    };
-    final companyId=await _localAuthRepository.getUserToken();
-    var url=Uri.parse("${AppConfig.baseUrl}/${AppConfig.companiesUrl}/${_localAuthRepository.getUserId()}");
+    
+    final companyId= _localAuthRepository.getUserToken();
+    
     var response=await _dio.get('${AppConfig.companiesUrl}/$companyId');
     var data=jsonDecode(response.data);
     try{
@@ -43,11 +39,7 @@ class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSour
 
   @override
   Future<CompanyModel> updateCompanyInfo(String name, String address, String phoneNumber)async {
-    Map<String,String>requestHeaders={
-      "Accept":"application/json",
-      "Content-Type":"application/json",
-      "Authorization":"Bearer ${_localAuthRepository.getUserToken()}"
-    };
+   
 
     final response=await _dio.patch(AppConfig.companiesUrl,
     data:{"name":name,"address":address,"phoneNumber":phoneNumber});

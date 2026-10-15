@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:jobboardhrapp/config/app_config.dart';
 import 'package:jobboardhrapp/features/application/data/models/application_model.dart';
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
@@ -19,7 +16,7 @@ class ApplicationRemoteDataSourceImpl implements ApplicationRemoteDataSource {
   @override
   Future<List<ApplicationModel>> getApplicationsByCompanyId() async {
     
-   final companyId=await _localAuthRepository.getUserId();
+   final companyId= _localAuthRepository.getUserId();
     
     var response = await _dio.get('${AppConfig.applicationByCompanyUrl}/$companyId',
      );

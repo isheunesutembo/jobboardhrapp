@@ -30,10 +30,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String email,
     required String password,
   }) async {
-    Map<String, String> requestHeaders = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    };
+    
     final response = await _dio.post(
       AppConfig.logInCompany,
       data: {
@@ -65,10 +62,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     required String address,
     required String phoneNumber,
   }) async {
-    Map<String, String> requestHeaders = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-    };
+    
     final response = await _dio.post(
       AppConfig.registerCompany,
       data: 
