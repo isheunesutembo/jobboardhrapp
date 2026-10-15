@@ -58,7 +58,7 @@ class VacancyRemoteDataSourceImpl implements VacancyRemoteDataSource {
     );
 
     if (response.statusCode == 200 || response.statusCode == 201) {
-      final data = jsonDecode(response.data);
+      final data = jsonDecode(response.data)  as Map<String,dynamic>;
       return VacancyModel.fromJson(data);
     }
     throw Exception(

@@ -46,12 +46,12 @@ class ApplicationRemoteDataSourceImpl implements ApplicationRemoteDataSource {
 
     
     var response = await _dio.patch(
-      AppConfig.applicationStatusUrl,
+      "${AppConfig.applicationStatusUrl}/$applicationId",
       data:{
          "status":status
       }
     );
-    var data = jsonDecode(response.data);
+    var data = response.data as Map<String,dynamic>;
 
     try {
       if (response.statusCode == 200) {
