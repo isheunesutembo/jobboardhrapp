@@ -1,6 +1,4 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 import 'package:jobboardhrapp/config/app_config.dart';
 import 'package:jobboardhrapp/features/application/data/models/application_model.dart';
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
@@ -11,23 +9,18 @@ abstract class ApplicationRemoteDataSource {
 }
 
 class ApplicationRemoteDataSourceImpl implements ApplicationRemoteDataSource {
-  final http.Client _client;
+  final Dio _dio;
   final LocalAuthRepository _localAuthRepository;
-  ApplicationRemoteDataSourceImpl(this._client, this._localAuthRepository);
+  ApplicationRemoteDataSourceImpl(this._dio, this._localAuthRepository);
 
   @override
   Future<List<ApplicationModel>> getApplicationsByCompanyId() async {
-    Map<String, String> requestHeaders = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-      "Authorization": "Bearer ${_localAuthRepository.getUserToken()}",
-    };
-
-    var url = Uri.parse(
-      "${AppConfig.baseUrl}/${AppConfig.applicationByCompanyUrl}/${_localAuthRepository.getUserId()}",
-    );
-    var response = await _client.get(url, headers: requestHeaders);
-    var data = jsonDecode(response.body);
+    
+   final companyId= _localAuthRepository.getUserId();
+    
+    var response = await _dio.get('${AppConfig.applicationByCompanyUrl}/$companyId',
+     );
+    var data = response.data;
 
     try {
       if (response.statusCode == 200) {
@@ -46,19 +39,16 @@ class ApplicationRemoteDataSourceImpl implements ApplicationRemoteDataSource {
       throw Exception('Application id is missing');
     }
 
-    Map<String, String> requestHeaders = {
-      "Accept": "application/json",
-      "Content-Type": "application/json",
-      "Authorization": "Bearer ${_localAuthRepository.getUserToken()}",
-    };
+    
 
-    var url = Uri.parse(
-      "${AppConfig.baseUrl}/${AppConfig.applicationStatusUrl}/$applicationId",
+    
+    var response = await _dio.patch(
+      "${AppConfig.applicationStatusUrl}/$applicationId",
+      data:{
+         "status":status
+      }
     );
-    var response = await _client.put(url,body: jsonEncode({
-       "status":status
-    }), headers: requestHeaders);
-    var data = jsonDecode(response.body);
+    var data = response.data as Map<String,dynamic>;
 
     try {
       if (response.statusCode == 200) {

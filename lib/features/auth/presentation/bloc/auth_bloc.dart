@@ -26,6 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthSignUp>(_onAuthSignUp);
     on<AuthLogin>(_onAuthLogIn);
     on<AuthUserLoggedIn>(_onAuthUserLoggedIn);
+    on<LoggedOut>(_onLoggedOut);
   }
 
   void _onAuthUserLoggedIn(
@@ -76,5 +77,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       case Right(value: final success):
         emit(AuthSuccess(success));
     }
+  }
+   void _onLoggedOut(LoggedOut event, Emitter<AuthState> emit) {
+    
+    emit(AuthUnauthenticated());
   }
 }
