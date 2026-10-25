@@ -1,7 +1,3 @@
-
-
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:jobboardhrapp/config/app_config.dart';
 import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
