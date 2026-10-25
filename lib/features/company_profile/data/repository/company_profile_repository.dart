@@ -13,10 +13,10 @@ class CompanyProfileRepositoryImpl implements CompanyProfileRepository{
 
   CompanyProfileRepositoryImpl(this._companyProfileRemoteDataSource);
   @override
-  Future<Either<Failure, CompanyModel>> getCompanyProfile(String id) async{
+  Future<Either<Failure, CompanyModel>> getCompanyProfile() async{
    
     try{
-      final companyProfile=await _companyProfileRemoteDataSource.getCompanyProfile(id);
+      final companyProfile=await _companyProfileRemoteDataSource.getCompanyProfile();
       return Right(companyProfile);
     }catch(e){
      return Left(Failure(e.toString()));

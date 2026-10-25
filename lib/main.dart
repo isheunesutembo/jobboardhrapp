@@ -4,6 +4,7 @@ import 'package:jobboardhrapp/dependency_injection.dart';
 import 'package:jobboardhrapp/features/application/presentation/bloc/application_bloc.dart';
 import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:jobboardhrapp/features/auth/presentation/screen/log_in_screen.dart';
+import 'package:jobboardhrapp/features/company_profile/presentation/bloc/company_profile_bloc.dart';
 import 'package:jobboardhrapp/features/home/screens/home_screen.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/bloc/vacancy_bloc.dart';
 import 'package:jobboardhrapp/util/color.dart';
@@ -19,6 +20,7 @@ void main() async {
         ),
         BlocProvider(create: (_) => serviceLocator<VacancyBloc>()..add(GetVacancies())),
         BlocProvider(create: (_) => serviceLocator<ApplicationBloc>()..add(GetApplications())),
+        BlocProvider(create: (_)=>serviceLocator<CompanyProfileBloc>()..add(GetCompanyProfileEvent()))
       ],
       child: const MyApp(),
     ),

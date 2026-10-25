@@ -8,7 +8,7 @@ import 'package:jobboardhrapp/features/auth/data/models/company_model.dart';
 import 'package:jobboardhrapp/features/auth/data/repositories/local_auth_repository.dart';
 abstract class CompanyProfileRemoteDataSource{
 
-  Future<CompanyModel>getCompanyProfile(String id);
+  Future<CompanyModel>getCompanyProfile();
   Future<CompanyModel>updateCompanyInfo(String name,String address,String phoneNumber);
 }
 
@@ -20,12 +20,12 @@ class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSour
   this._localAuthRepository);
 
   @override
-  Future<CompanyModel> getCompanyProfile(String id) async{
+  Future<CompanyModel> getCompanyProfile() async{
     
-    final companyId= _localAuthRepository.getUserToken();
+    final companyId= _localAuthRepository.getUserId();
     
     var response=await _dio.get('${AppConfig.companiesUrl}/$companyId');
-    var data=jsonDecode(response.data);
+    var data=response.data;
     try{
       if(response.statusCode==200){
         return CompanyModel.fromJson(data);
@@ -40,12 +40,12 @@ class CompanyProfileRemoteDataSourceImpl implements CompanyProfileRemoteDataSour
   @override
   Future<CompanyModel> updateCompanyInfo(String name, String address, String phoneNumber)async {
    
-
-    final response=await _dio.patch(AppConfig.companiesUrl,
+     final companyId=_localAuthRepository.getUserId();
+    final response=await _dio.patch("${AppConfig.companiesUrl}/$companyId",
     data:{"name":name,"address":address,"phoneNumber":phoneNumber});
 
     if(response.statusCode==200||response.statusCode==201){
-      final data=jsonDecode(response.data) as Map<String,dynamic>;
+      final data=response.data as Map<String,dynamic>;
       return CompanyModel.fromJson(data);
     }
     throw Exception(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobboardhrapp/features/application/presentation/screen/application_screen.dart';
-import 'package:jobboardhrapp/features/auth/presentation/screen/company_profile_screen.dart';
+import 'package:jobboardhrapp/features/company_profile/presentation/screen/company_profile_screen.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/screen/add_vacancy_screen.dart';
 import 'package:jobboardhrapp/features/vacancies/presentation/screen/vancancies_screen.dart';
 

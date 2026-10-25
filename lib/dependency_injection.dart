@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
@@ -17,6 +16,12 @@ import 'package:jobboardhrapp/features/auth/domain/usecases/company_login.dart';
 import 'package:jobboardhrapp/features/auth/domain/usecases/company_signup.dart';
 import 'package:jobboardhrapp/features/auth/domain/usecases/is_user_logged_in.dart';
 import 'package:jobboardhrapp/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:jobboardhrapp/features/company_profile/data/datasource/company_profile_remote_datasource.dart';
+import 'package:jobboardhrapp/features/company_profile/data/repository/company_profile_repository.dart';
+import 'package:jobboardhrapp/features/company_profile/domain/repository/company_profile_repository.dart';
+import 'package:jobboardhrapp/features/company_profile/domain/use_case/get_company_use_case.dart';
+import 'package:jobboardhrapp/features/company_profile/domain/use_case/update_company_profile_usecase.dart';
+import 'package:jobboardhrapp/features/company_profile/presentation/bloc/company_profile_bloc.dart';
 import 'package:jobboardhrapp/features/vacancies/data/datasource/vacancy_remote_data_source.dart';
 import 'package:jobboardhrapp/features/vacancies/data/repository/vacancy_repository_impl.dart';
 import 'package:jobboardhrapp/features/vacancies/domain/repository/vacancy_repository.dart';
@@ -29,17 +34,23 @@ final serviceLocator = GetIt.instance;
 
 Future<void> initDependencies() async {
   serviceLocator.registerLazySingleton(() => http.Client());
-  serviceLocator.registerLazySingleton<Dio>(()=>createDio(serviceLocator<LocalAuthRepository>(), ()=>serviceLocator<AuthBloc>().add(LoggedOut())));
+  serviceLocator.registerLazySingleton<Dio>(
+    () => createDio(
+      serviceLocator<LocalAuthRepository>(),
+      () => serviceLocator<AuthBloc>().add(LoggedOut()),
+    ),
+  );
   final sharedPreferences = await SharedPreferences.getInstance();
   serviceLocator.registerSingleton<SharedPreferences>(sharedPreferences);
 
-  serviceLocator.registerLazySingleton<LocalAuthRepository>(
+  serviceLocator.registerFactory<LocalAuthRepository>(
     () => LocalAuthRepository(serviceLocator<SharedPreferences>()),
   );
 
   _initAuth();
   _initVacancies();
   _initApplications();
+  _initCompanyProfile();
 }
 
 void _initAuth() {
@@ -59,7 +70,7 @@ void _initAuth() {
     ..registerFactory(() => CompanySignUpUsecase(serviceLocator()))
     ..registerFactory(() => CompanyLogInUseCase(serviceLocator()))
     ..registerFactory(() => IsUserLoggedIn(serviceLocator<AuthRepository>()))
-    ..registerLazySingleton(
+    ..registerFactory(
       () => AuthBloc(
         companyLogInUseCase: serviceLocator<CompanyLogInUseCase>(),
         comapnySignUpUseCase: serviceLocator<CompanySignUpUsecase>(),
@@ -84,7 +95,7 @@ void _initVacancies() {
     //Usecases
     ..registerFactory(() => CreateVacancyUseCase(serviceLocator()))
     ..registerFactory(() => GettingVacancyUsecase(serviceLocator()))
-    ..registerLazySingleton(
+    ..registerFactory(
       () => VacancyBloc(
         createVacancyUseCase: serviceLocator<CreateVacancyUseCase>(),
         gettingVacancyUsecase: serviceLocator<GettingVacancyUsecase>(),
@@ -109,11 +120,36 @@ void _initApplications() {
     )
     //Usecases
     ..registerFactory(() => GetApplicationUseCase(serviceLocator()))
-    ..registerFactory(()=>UpdateApplicationUseCase(serviceLocator()))
-    ..registerLazySingleton(
+    ..registerFactory(() => UpdateApplicationUseCase(serviceLocator()))
+    ..registerFactory(
       () => ApplicationBloc(
         getApplicationUseCase: serviceLocator<GetApplicationUseCase>(),
-        updateApplicationUsecase: serviceLocator<UpdateApplicationUseCase>()
+        updateApplicationUsecase: serviceLocator<UpdateApplicationUseCase>(),
       ),
     );
+}
+
+void _initCompanyProfile() {
+  //Datasource
+  serviceLocator
+    ..registerLazySingleton<CompanyProfileRemoteDataSource>(
+      () => CompanyProfileRemoteDataSourceImpl(
+        serviceLocator<Dio>(),
+        serviceLocator<LocalAuthRepository>(),
+      ),
+    )
+    //Repository
+    ..registerLazySingleton<CompanyProfileRepository>(
+      () => CompanyProfileRepositoryImpl(
+        serviceLocator<CompanyProfileRemoteDataSource>(),
+      ),
+    
+    )
+        //useCases
+    ..registerLazySingleton(()=>GetCompanyProfileUseCase(serviceLocator()))
+    ..registerLazySingleton(()=>CreateUpdateCompanyUseCase(serviceLocator()))
+    ..registerFactory(()=>CompanyProfileBloc(createUpdateCompanyUseCase: serviceLocator<CreateUpdateCompanyUseCase>(), getCompanyUseCase: serviceLocator<GetCompanyProfileUseCase>()));
+
+
+
 }
